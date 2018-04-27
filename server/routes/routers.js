@@ -1,8 +1,15 @@
-const express = require('express');
-const router  = express.Router();
+const express  = require('express');
+const router   = express.Router();
+const database = require('../database/database');
+
 
 router.get('/', (req, res) => {
-	res.send('hello');
+	// database.save('docTest', {test: 'caac'}).then((result, err) => {
+	// 	if (err)
+	// 		res.sendStatus(500);
+	// 	else
+	// 		res.send(result.ops);
+	// });
 });
 
 module.exports = router;
