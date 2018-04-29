@@ -1,0 +1,311 @@
+@media (max-width: 980px) {
+    nav#home {
+        position: fixed;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+        padding-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+        z-index: 1000;
+        height: 80px;
+        font-family: RalewayRegular;
+        background: none;
+    }
+
+    nav ul li a:hover {
+        background: none;
+        color: #387977;
+        border-bottom: 2px solid #c59d58;
+    }
+
+    nav ul li.active {
+        background: none;
+        color: #387977;
+        border-bottom: 2px solid #c59d58;
+    }
+
+    nav ul li.active a {
+        color: #387977;
+    }
+
+    header .header-sans-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+    }
+
+    #title-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+    }
+
+    .title-texte {
+        color: white;
+        text-align: center;
+        font-size: 35px;
+    }
+
+    .title-texte h3 {
+        font-family: RalewaySemiBold;
+    }
+
+    .title-texte p {
+        font-family: RalewayRegular;
+    }
+
+    #competence {
+        display: none;
+    }
+
+    #competence-mobile {
+        display: block;
+    }
+
+    #competence, #competence-mobile {
+        margin-bottom: 60px;
+    }
+
+    #competence, #competence-mobile .titre {
+        text-align: center;
+    }
+
+    #competence .titre::after, #competence-mobile .titre::after {
+        content: url("../img/soustitre.png");
+    }
+
+    #competence .three-comptence, #competence-mobile .three-comptence {
+        display: flex;
+        margin-top: 70px;
+        justify-content: space-around;
+    }
+
+    .slick-initialized .slick-slide {
+        display: flex !important;
+    }
+
+    .slick-arrow {
+        display: none !important;
+    }
+
+    .one-competence {
+        display: flex;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .one-competence img {
+        width: 90px;
+    }
+
+    .one-competence p {
+        margin-top: -10px;
+        font-size: 14px;
+        font-family: RalewayLight;
+    }
+
+    .one-competence h3 {
+        margin-top: 0;
+        font-size: 24px;
+        font-family: DosisMedium;
+    }
+
+    #apropos {
+        position: relative;
+        padding-top: 30px;
+        background: #29746e;
+        color: white;
+    }
+
+    #apropos h2, #apropos h3 {
+        padding: 10px;
+        font-family: RalewaySemiBold;
+    }
+
+    #apropos p {
+        padding: 10px;
+        font-family: RalewayLight;
+    }
+
+    .img-apropos {
+        display: none;
+    }
+
+    .titre {
+        font-family: DosisBook;
+    }
+
+    #apropos .titre {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    #apropos .titre::after {
+        content: url("../img/soustitre-fondvert.png");
+    }
+
+    #content-apropos {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .text-apropos {
+        width: 800px;
+    }
+
+    .text-apropos h2 {
+        color: #2e3231;
+    }
+
+    .text-apropos h3 {
+        color: #384c41;
+        font-size: 30px;
+    }
+
+    .text-apropos p {
+        font-size: 25px;
+    }
+
+    #project {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        padding-top: 30px;
+        margin-bottom: 50px;
+        margin: auto;
+    }
+
+    #project a.link-img:nth-child(n+4) {
+        display: none;
+    }
+
+    #project img.vignette {
+        height: 150px;
+    }
+
+    #project .titre {
+        padding-top: 20px;
+        text-align: center;
+    }
+
+    #project .titre::after {
+        content: url("../img/soustitre.png");
+    }
+
+    div.projectContainer {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+        width: 100%;
+    }
+
+    .projects img {
+        margin: 5px;
+    }
+
+    .lienProject {
+        display: block;
+        position: relative;
+        text-align: center;
+        width: 70%;
+        margin: 20px 0 60px 0;
+    }
+
+    .lienProject a {
+        color: #6d6d6d;
+        font-size: 30px;
+        margin-right: 10px;
+        font-family: RalewayLight;
+    }
+
+    #contact {
+        display: none;
+    }
+
+    #contact-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        background: #e3d6a1;
+        padding-bottom: 20px;
+    }
+
+    form[name="contact"] {
+        width: 70%;
+    }
+
+    #button {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #button .col.push-s10 {
+        left: 0 !important;
+    }
+
+    #button .col.s1 {
+        width: auto;
+        margin-left: 0;
+    }
+
+    #contact-mobile .titre {
+        padding-top: 1px;
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    #contact-mobile #form-contact {
+        width: 100%;
+    }
+
+    #contact-mobile .label-contact {
+        margin-left: 5px;
+        margin-top: -5px;
+    }
+
+    #contact-mobile .titre::after {
+        content: url("../img/soustitrefondjaune.png");
+    }
+
+    #contact-mobile .input-field {
+        width: 100%
+
+    }
+
+    #contact_name, #contact_firstname, #contact_email, #contact_message {
+        background: white;
+
+    }
+
+    #contact_envoyer {
+        font-family: DosisMedium;
+    }
+
+    .nav-footer {
+        background: #393738;
+        height: 100px;
+        padding: 20px;
+    }
+
+    .nav-footer .nav-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #nav-mobile {
+        margin-left: 100px;
+    }
+
+}
