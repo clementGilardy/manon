@@ -61,8 +61,10 @@ $(document).ready(function () {
 	}
 	
 	function resetScroll() {
-		$('header nav#home li a').css('color', 'white');
-		$('#home').css('background', 'none');
+		if (!_.includes(window.location.href, 'projects')) {
+			$('header nav#home li a').css('color', 'white');
+			$('#home').css('background', 'none');
+		}
 	}
 	
 	// ANCHOR Scroll
