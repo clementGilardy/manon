@@ -243,20 +243,8 @@
         width: 70%;
     }
 
-    #button {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #button .col.push-s10 {
+    .col.push-s10 {
         left: 0 !important;
-    }
-
-    #button .col.s1 {
-        width: auto;
-        margin-left: 0;
     }
 
     #contact-mobile .titre {
@@ -270,8 +258,16 @@
         width: 100%;
     }
 
-    #contact-mobile .label-contact {
-        margin-left: 5px;
+    #form-contact {
+        text-align: center;
+    }
+
+    #contact-mobile label {
+        margin-left: 6%;
+    }
+
+    #contact-mobile label.active {
+        margin-left: 6%;
         margin-top: -5px;
     }
 
@@ -284,13 +280,15 @@
 
     }
 
-    #contact_name, #contact_firstname, #contact_email, #contact_message {
+    #nom, #prenom, #email, #message {
         background: white;
-
+        width: 90%;
+        font-family: RalewayLight;
     }
 
-    #contact_envoyer {
+    #envoyer {
         font-family: DosisMedium;
+        background: #c59d58;
     }
 
     .nav-footer {

@@ -1,0 +1,28 @@
+<div class="contact-mobile" id="contact-mobile">
+	<div class="titre">
+		<h1>Contact</h1>
+	</div>
+	<div id="form-contact">
+		<div class="input-field">
+			<input type="text" id="nom" name="nom" [(ngModel)]="contact.nom">
+			<label for="nom">Nom</label>
+		</div>
+		<div class="input-field">
+			<input type="text" id="prenom" name="prenom" [(ngModel)]="contact.prenom">
+			<label for="prenom">Prenom</label>
+		</div>
+		<div class="input-field">
+			<input type="text" id="email" name="email" [(ngModel)]="contact.email">
+			<label for="email">Email</label>
+		</div>
+		<div class="input-field">
+			<textarea name="message" id="message" cols="30" rows="10" [(ngModel)]="contact.message"></textarea>
+			<label for="message">Message</label>
+		</div>
+	</div>
+	<div id="button" class="row">
+		<div class="col s1 push-s10">
+			<button id="envoyer" class="btn">Envoyer</button>
+		</div>
+	</div>
+</div>

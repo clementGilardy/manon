@@ -11,8 +11,8 @@ $(document).ready(function () {
 	});
 	
 	setInterval(function () {
-		if ($(this).scrollTop() == 0 && !normal) {
-			if ($('li.active a').text() == 'ACCUEILACCUEIL') {
+		if ($(this).scrollTop() >= 0 && $(this).scrollTop() <= 100 && !normal) {
+			if ($('li.active a').text() === 'ACCUEILACCUEIL') {
 				$('header nav#home li a').fadeOut(500, function () {
 					$(this).css('color', 'white').fadeIn(500);
 				});
@@ -22,6 +22,8 @@ $(document).ready(function () {
 				});
 			}
 			normal = true;
+		} else {
+			resetScroll();
 		}
 		
 		if ($(this).scrollTop() != 0) {
@@ -56,6 +58,11 @@ $(document).ready(function () {
 		}
 		
 		lastScrollTop = st;
+	}
+	
+	function resetScroll() {
+		$('header nav#home li a').css('color', 'white');
+		$('#home').css('background', 'none');
 	}
 	
 	// ANCHOR Scroll

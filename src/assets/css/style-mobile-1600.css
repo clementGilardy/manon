@@ -246,6 +246,7 @@
         justify-content: space-between;
         align-items: flex-end;
         margin-right: 20px;
+        width:50%;
     }
 
     .right-contact {
@@ -253,50 +254,34 @@
         align-items: flex-start;
     }
 
-    #contact_name, #contact_firstname, #contact_email, #contact_message {
+    #nom, #prenom, #email, #message {
         background: white;
         padding-left: 5px;
         border-radius: 5px;
     }
 
-    #contact_name, #contact_firstname, #contact_email {
+    #nom, #prenom, #email {
         width: 450px;
         height: 55px;
+        font-family: RalewayLight;
     }
 
-    #contact_message {
-        height: 250px;
+    #message {
+        height: 266px;
         width: 450px;
-    }
-
-    #contact_envoyer {
-        font-family: DosisMedium;
+        font-family: RalewayLight;
     }
 
     .label-contact {
         padding-left: 5px;
     }
 
-    #contact_envoyer {
+    #envoyer {
+        font-family: DosisMedium;
         background: #c59d58;
         margin-top: -10px;
         margin-bottom: 10px;
-    }
-
-    #button {
-        margin-bottom: 0;
-    }
-
-    #button div {
-        margin-bottom: 20px;
-        margin-left: -3%;
-    }
-
-    .label-contact.active {
-        font-size: 25px;
-        color: white;
-        height: 20px;
-        margin-top: -15px;
+        margin-left: -125%;
     }
 
     .nav-footer {

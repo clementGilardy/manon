@@ -41,7 +41,7 @@
         content: url("../img/trait-head-comp.png");
         position: absolute;
         left: 20px;
-        margin-top: 15%;
+        margin-top: 28%;
     }
 
     #title-container {
@@ -273,6 +273,7 @@
     }
 
     .left-contact {
+        width: 50%;
         flex: 1;
         justify-content: space-between;
         align-items: flex-end;
@@ -284,51 +285,40 @@
         align-items: flex-start;
     }
 
-    #contact_name, #contact_firstname, #contact_email, #contact_message {
+    #nom, #prenom, #email, #message {
         background: white;
         padding-left: 5px;
         border-radius: 5px;
     }
 
-    #contact_name, #contact_firstname, #contact_email {
+    #nom, #prenom, #email {
         width: 700px;
         height: 55px;
     }
 
-    #contact_message {
-        height: 250px;
+    #message {
+        height: 266px;
         width: 700px;
-    }
-
-    #contact_envoyer {
-        font-family: DosisMedium;
     }
 
     .label-contact {
         padding-left: 5px;
     }
 
-    #contact_envoyer {
+    #envoyer {
+        font-family: DosisMedium;
         background: #c59d58;
         margin-top: -10px;
         margin-bottom: 10px;
+        margin-left: 45%;
     }
 
-    #button {
-        margin-bottom: 0;
-    }
-
-    #button div {
-        margin-bottom: 20px;
-        margin-left: -3%;
-    }
-
-    .label-contact.active {
-        font-size: 25px;
-        color: white;
-        height: 20px;
-        margin-top: -15px;
-    }
+    /*.label-contact.active {*/
+        /*font-size: 25px;*/
+        /*color: white;*/
+        /*height: 20px;*/
+        /*margin-top: -15px;*/
+    /*}*/
 
     .nav-footer {
         background: #393738;

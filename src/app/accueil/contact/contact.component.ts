@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Contact } from "app/accueil/contact/contact";
 
 @Component({
 	           selector   : 'app-contact',
@@ -6,6 +7,13 @@ import { Component } from '@angular/core';
 	           styleUrls  : ['contact.component.scss']
            })
 export class ContactComponent {
+	public contact: Contact;
+
 	constructor() {
+		this.contact = new Contact();
+	}
+
+	sendMail(){
+		console.log(this.contact);
 	}
 }
