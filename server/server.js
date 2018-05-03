@@ -1,17 +1,16 @@
-const express     = require('express');
-const bodyParser  = require('body-parser');
+const express    = require('express');
+const constants  = require('constant/constants');
+const bodyParser = require('body-parser');
+const app        = express();
+const mail       = require('./routes/mail');
+const project       = require('./routes/project');
 
-const app         = express();
-const router      = require('./routes/routers');
-
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
 	
 	// Website you wish to allow to connect
-	res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
+	res.setHeader('Access-Control-Allow-Origin', constants.URL_FRONT);
 	
 	// Request methods you wish to allow
 	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -26,9 +25,8 @@ app.use(function (req, res, next) {
 	// Pass to next layer of middleware
 	next();
 });
-app.use('/api',router);
-
-
+app.use(constants.API_PREFIC, mail);
+app.use(constants.API_PREFIC, mail);
 
 
 app.listen(3000, function () {
