@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Contact } from "app/accueil/contact/contact";
+import { MailService } from "common/services/mail.service";
 
 @Component({
 	           selector   : 'app-contact',
@@ -9,11 +10,11 @@ import { Contact } from "app/accueil/contact/contact";
 export class ContactComponent {
 	public contact: Contact;
 
-	constructor() {
+	constructor(private mail:MailService) {
 		this.contact = new Contact();
 	}
 
 	sendMail(){
-		console.log(this.contact);
+		this.mail.sendMail(this.contact);
 	}
 }

@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { DatabaseService } from "common/services/database.service";
+import { Contact } from "app/accueil/contact/contact";
+
+const httpOptions = {
+	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
 
 @Injectable()
-export class MailService {
+export class MailService extends DatabaseService {
 
-	public uri: string;
-
-	constructor() {
-		this.uri = '/api/mail'
+	constructor(protected http: HttpClient) {
+		super(http);
+		this.url = '/api/mail'
 	}
 
+	sendMail(obj: Contact) {
+		return this.http.post(this.base + this.url, obj).subscribe((res)=>{
+			console.log(res);
+		},(err)=>{
+			console.log(err);
+		});
+	}
 }

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FooterComponent } from "common/components/footer/footer.component";
 import { NavComponent } from "common/components/nav/nav.component";
-import { FormsModule } from "@angular/forms";
 
 @NgModule({
 	          exports     : [FooterComponent, NavComponent],

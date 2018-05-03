@@ -10,12 +10,15 @@ import { CommonsModule } from "common/commons.module";
 import { ContactMobileComponent } from "app/accueil/contact-mobile/contactMobile.component";
 import { FormsModule } from "@angular/forms";
 import { NavaccueilComponent } from "app/accueil/nav-accueil/navaccueil.component";
+import { MailService } from "common/services/mail.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	          imports     : [
 		          BrowserModule,
 		          CommonsModule,
-		          FormsModule
+		          FormsModule,
+		          HttpClientModule
 	          ],
 	          declarations: [
 		          HomeComponent,
@@ -27,6 +30,7 @@ import { NavaccueilComponent } from "app/accueil/nav-accueil/navaccueil.componen
 		          ContactMobileComponent,
 		          NavaccueilComponent
 	          ],
+	          providers   : [MailService],
 	          bootstrap   : []
           })
 export class AccueilModule {

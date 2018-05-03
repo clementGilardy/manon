@@ -3,7 +3,10 @@ const router   = express.Router();
 const database = require('../database/database');
 
 
-router.get('/', (req, res) => {
+router.post('/mail', (req, res) => {
+	const mail = req.body;
+	console.log('send mail');
+
 	// database.save('docTest', {test: 'caac'}).then((result, err) => {
 	// 	if (err)
 	// 		res.sendStatus(500);
