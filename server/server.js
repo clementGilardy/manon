@@ -1,9 +1,9 @@
 const express    = require('express');
-const constants  = require('constant/constants');
+const constants  = require('./constant/constants');
 const bodyParser = require('body-parser');
 const app        = express();
 const mail       = require('./routes/mail');
-const project       = require('./routes/project');
+const project    = require('./routes/project');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

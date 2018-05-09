@@ -5,6 +5,7 @@ import { RoutingModule } from "app/app.routing";
 import { MaterializeModule } from "angular2-materialize";
 import { AccueilModule } from "app/accueil/accueil.module";
 import { ProjectsModule } from "app/projects/projects.module";
+import { AdminModule } from "app/admin/admin.module";
 
 @NgModule({
 	          declarations: [
@@ -15,7 +16,8 @@ import { ProjectsModule } from "app/projects/projects.module";
 		          RoutingModule,
 		          MaterializeModule,
 		          AccueilModule,
-		          ProjectsModule
+		          ProjectsModule,
+		          AdminModule
 	          ],
 	          providers   : [],
 	          bootstrap   : [AppComponent]
