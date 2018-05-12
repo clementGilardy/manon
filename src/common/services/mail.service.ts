@@ -3,11 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { DatabaseService } from "common/services/database.service";
 import { Contact } from "app/accueil/contact/contact";
 
-const httpOptions = {
-	headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-
 @Injectable()
 export class MailService extends DatabaseService {
 

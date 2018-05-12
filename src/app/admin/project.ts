@@ -1,19 +1,17 @@
+import { Image } from "app/admin/image";
+
 export class Project {
 	public titre: string;
 	public categorie: string;
 	public description: string;
-	public images: Array<any>;
+	public images: Array<Image>;
 
 	constructor() {
-		this.images = new Array<any>();
-		this.images = [{name: '', img: ''}];
+		this.images = new Array<Image>();
+		this.images = [new Image()];
 	}
 
 	addImage() {
-		this.images.push({name: '', img: ''});
-	}
-
-	addProject() {
-		console.log(this.images);
+		this.images.push(new Image());
 	}
 }

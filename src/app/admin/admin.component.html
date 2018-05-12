@@ -16,13 +16,13 @@
 	</div>
 	<div *ngFor="let image of project.images" class="file-field input-field">
 		<div class="input-field col s6">
-			<input id="nomimage" type="text" class="validate" [(ngModel)]="image.nom">
+			<input id="nomimage" type="text" class="validate" [(ngModel)]="image.name">
 			<label for="nomimage">Nom de l'image</label>
 		</div>
 		<div class="input-field col s6">
 			<div class="btn">
 				<span>Image</span>
-				<input type="file" [(ngModel)]="image.img">
+				<input type="file" (change)="image.handleFileInput($event.target.files)">
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text">
@@ -31,5 +31,5 @@
 	</div>
 	{{images|json}}
 	<button (click)="project.addImage()" class="btn">Ajouter une image</button><br><br>
-	<button (click)="project.addProject()" class="btn">Ajouter le projet</button>
+	<button (click)="addProject()" class="btn">Ajouter le projet</button>
 </div>

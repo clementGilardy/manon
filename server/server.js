@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
 	next();
 });
 app.use(constants.API_PREFIC, mail);
-app.use(constants.API_PREFIC, mail);
+app.use(constants.API_PREFIC, project);
 
 
 app.listen(3000, function () {

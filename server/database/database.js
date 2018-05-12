@@ -12,8 +12,6 @@ function save(docName, dataInsert) {
 	getMongoDB()
 		.then((dbConnection) => {
 		dbConnection.collection(docName).save(dataInsert, function(err, result) {
-			
-			console.log('test');
 			if (err)
 				deffered.reject(err);
 			else
