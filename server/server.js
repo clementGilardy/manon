@@ -5,8 +5,8 @@ const app        = express();
 const mail       = require('./routes/mail');
 const project    = require('./routes/project');
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 app.use(function (req, res, next) {
 	
 	// Website you wish to allow to connect

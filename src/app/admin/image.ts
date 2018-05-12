@@ -1,12 +1,16 @@
+import * as moment from 'moment';
+
 export class Image {
 	public name: string;
 	public description: string;
-	public image: any;
+	public type: string;
+	public extension: string;
+	public img: any;
 
 	constructor() {
-		this.name        = '';
+		this.name        = moment().format('x');
 		this.description = '';
-		this.image       = null;
+		this.img         = null;
 	}
 
 	handleFileInput(files: FileList) {
@@ -14,7 +18,10 @@ export class Image {
 		const file = files.item(0);
 		reader.readAsDataURL(file);
 		reader.onload = () => {
-			this.image = reader.result.split(',')[1];
+			this.name      = moment().format('x');
+			this.img       = reader.result.split(',')[1];
+			this.extension = file.name.split('.').pop();
+			this.type      = file.type;
 		};
 	}
 }
