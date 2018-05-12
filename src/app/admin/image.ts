@@ -13,9 +13,9 @@ export class Image {
 		this.img         = null;
 	}
 
-	handleFileInput(files: FileList) {
+	handleFileInput(event: any) {
 		let reader = new FileReader();
-		const file = files.item(0);
+		const file = event.target.files.item(0);
 		reader.readAsDataURL(file);
 		reader.onload = () => {
 			this.name      = moment().format('x');

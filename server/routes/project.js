@@ -16,11 +16,13 @@ router.get('/projects', (req, res) => {
 
 router.post('/projects', (req, res) => {
 	const projet          = req.body;
+	const minBuffer       = Buffer.from(projet.miniature.img, constants.ENCODAGE);
 	let imageBuffer       = null;
 	const projectToInsert = {
 		titre: projet.titre,
 		categorie: projet.categorie,
 		description: projet.description,
+		miniature: null,
 		images: []
 	};
 	
@@ -32,6 +34,15 @@ router.post('/projects', (req, res) => {
 				console.log('write success');
 			});
 			projectToInsert.images.push({name: image.name, extension: image.extension, description: image.description});
+		});
+		await fs.appendFile(constants.PATH_UPLOAD + projet.miniature.name + constants.DOT + projet.miniature.extension, minBuffer, (err) => {
+			if (err) console.log(err);
+			console.log('write success miniature');
+			projectToInsert.miniature = {
+				name: projet.miniature.name,
+				extension: projet.miniature.extension,
+				description: projet.miniature.description
+			};
 		});
 		database.save(constants.MONGO_TABLE.PROJECTS, projectToInsert).then((result, err) => {
 			if (err) {

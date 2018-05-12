@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div class="input-field col s6">
-		<input placeholder="Placeholder" id="titre" type="text" [(ngModel)]="project.titre" class="validate">
+		<input id="titre" type="text" [(ngModel)]="project.titre" class="validate">
 		<label for="titre">Titre</label>
 	</div>
 	<div class="input-field col s6">
@@ -14,19 +14,28 @@
 		<textarea id="textarea1" class="materialize-textarea" [(ngModel)]="project.description"></textarea>
 		<label for="textarea1">Description</label>
 	</div>
+	<div class="file-field input-field col s12">
+		<div class="btn">
+			<span>Miniature</span>
+			<input type="file" (change)="project.miniature.handleFileInput($event)">
+		</div>
+		<div class="file-path-wrapper">
+			<input class="file-path validate" type="text">
+		</div>
+	</div>
 	<div *ngFor="let image of project.images" class="file-field input-field">
 		<div class="input-field col s6">
 			<div class="btn">
 				<span>Image</span>
-				<input type="file" (change)="image.handleFileInput($event.target.files)">
+				<input type="file" (change)="image.handleFileInput($event)">
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text">
 			</div>
 		</div>
 	</div>
-	<br>
-	<button (click)="project.addImage()" class="btn">Ajouter une image</button>
-	<br><br>
-	<button (click)="addProject()" class="btn">Ajouter le projet</button>
+	<div class="col s12">
+		<button (click)="project.addImage()" class="btn">Ajouter une image</button>
+		<button (click)="addProject()" class="btn">Ajouter le projet</button>
+	</div>
 </div>
