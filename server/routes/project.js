@@ -7,16 +7,18 @@ const utils     = require('../utils/utils');
 
 router.get('/projects', (req, res) => {
 	database.find(constants.MONGO_TABLE.PROJECTS).then((result, err) => {
-		if (err)
+		if (err) {
 			res.sendStatus(500);
-		else
+		}
+		else {
 			res.send(result);
+		}
 	});
 });
 
 router.post('/projects', (req, res) => {
 	const projet          = req.body;
-	const minBuffer       = Buffer.from(projet.miniature.img, constants.ENCODAGE);
+	const minBuffer       = projet.miniature.img !== null ? Buffer.from(projet.miniature.img, constants.ENCODAGE) : null;
 	let imageBuffer       = null;
 	const projectToInsert = {
 		titre: projet.titre,

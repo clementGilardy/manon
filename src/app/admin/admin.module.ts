@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { AdminRouting } from "app/admin/admin.routing";
 import { AdministrationComponent } from "app/admin/administration/administration.component";
 import { AddProjectComponent } from "app/admin/addProject/addProject.component";
+import { ListProjectComponent } from "app/admin/listProject/listProject.component";
 
 @NgModule({
 	          imports     : [
@@ -17,7 +18,8 @@ import { AddProjectComponent } from "app/admin/addProject/addProject.component";
 	          declarations: [
 		          AdminComponent,
 		          AdministrationComponent,
-		          AddProjectComponent
+		          AddProjectComponent,
+		          ListProjectComponent
 	          ],
 	          bootstrap   : []
           })

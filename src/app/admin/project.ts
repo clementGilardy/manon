@@ -1,4 +1,5 @@
 import { Image } from "app/admin/image";
+import * as _ from 'lodash';
 
 export class Project {
 	public titre: string;
@@ -13,7 +14,19 @@ export class Project {
 		this.miniature = new Image();
 	}
 
+	init(projet: Project) {
+		this.titre       = projet.titre;
+		this.categorie   = projet.categorie;
+		this.description = projet.description;
+		this.miniature   = projet.miniature ? projet.miniature : new Image();
+		this.images      = projet.images ? projet.images : new Array();
+	}
+
 	addImage() {
 		this.images.push(new Image());
+	}
+
+	deleteImage(image: Image) {
+		this.images = _.without(this.images, image);
 	}
 }
