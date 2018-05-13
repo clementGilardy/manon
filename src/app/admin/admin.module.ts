@@ -3,15 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonsModule } from "common/commons.module";
 import { AdminComponent } from "app/admin/admin.component";
 import { FormsModule } from "@angular/forms";
+import { AdminRouting } from "app/admin/admin.routing";
+import { AdministrationComponent } from "app/admin/administration/administration.component";
+import { AddProjectComponent } from "app/admin/addProject/addProject.component";
 
 @NgModule({
 	          imports     : [
 		          BrowserModule,
 		          CommonsModule,
-		          FormsModule
+		          FormsModule,
+		          AdminRouting
 	          ],
 	          declarations: [
-		          AdminComponent
+		          AdminComponent,
+		          AdministrationComponent,
+		          AddProjectComponent
 	          ],
 	          bootstrap   : []
           })
