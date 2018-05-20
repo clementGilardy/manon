@@ -14,14 +14,16 @@ export class Image {
 	}
 
 	handleFileInput(event: any) {
-		let reader = new FileReader();
-		const file = event.target.files.item(0);
-		reader.readAsDataURL(file);
-		reader.onload = () => {
-			this.name      = moment().format('x');
-			this.img       = reader.result.split(',')[1];
-			this.extension = file.name.split('.').pop();
-			this.type      = file.type;
-		};
+		if (event.target.files.length > 0) {
+			let reader = new FileReader();
+			const file = event.target.files.item(0);
+			reader.readAsDataURL(file);
+			reader.onload = () => {
+				this.name      = moment().format('x');
+				this.img       = reader.result.split(',')[1];
+				this.extension = file.name.split('.').pop();
+				this.type      = file.type;
+			};
+		}
 	}
 }

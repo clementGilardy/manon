@@ -8,12 +8,11 @@ module.exports = {
 	find
 };
 
-function find(docName) {
+function find(docName, filter) {
 	const deffered = Q.defer();
-	const query = {};
 	getMongoDB()
 		.then((dbConnection) => {
-			dbConnection.collection(docName).find(query).toArray(function (err, result) {
+			dbConnection.collection(docName).find(filter).toArray(function (err, result) {
 				if (err) {
 					deffered.reject(err);
 				}
