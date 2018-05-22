@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
 
@@ -8,6 +8,7 @@ import { ProjectService } from "common/services/project.service";
 	           styleUrls  : ['addProject.component.scss']
            })
 export class AddProjectComponent {
+	@Input() projects: Array<Project>;
 	public project: Project;
 
 	constructor(private projectService: ProjectService) {
@@ -18,7 +19,10 @@ export class AddProjectComponent {
 		this.projectService
 		    .saveProject(this.project)
 		    .subscribe((result) => {
+			    this.projects.push(this.project);
 			    console.log(result);
+		    },(err)=>{
+		    	console.log(err);
 		    });
 	}
 }

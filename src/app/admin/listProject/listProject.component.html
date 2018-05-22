@@ -1,1 +1,13 @@
-test de list de projet
+<table *ngIf="projects.length > 0">
+	<tr>
+		<th>Titre</th>
+		<th>Categorie</th>
+		<th>Action</th>
+	</tr>
+	<tr *ngFor="let projet of projects">
+		<td>{{projet.titre}}</td>
+		<td>{{projet.categorie}}</td>
+		<td><button class="btn">Supprimer</button></td>
+	</tr>
+</table>
+<span *ngIf="projects.length === 0">Aucun projet</span>

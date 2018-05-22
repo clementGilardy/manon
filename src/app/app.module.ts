@@ -6,6 +6,7 @@ import { MaterializeModule } from "angular2-materialize";
 import { AccueilModule } from "app/accueil/accueil.module";
 import { ProjectsModule } from "app/projects/projects.module";
 import { AdminModule } from "app/admin/admin.module";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
 	          declarations: [
@@ -17,7 +18,9 @@ import { AdminModule } from "app/admin/admin.module";
 		          MaterializeModule,
 		          AccueilModule,
 		          ProjectsModule,
-		          AdminModule
+		          AdminModule,
+		          ReactiveFormsModule,
+		          FormsModule
 	          ],
 	          providers   : [],
 	          bootstrap   : [AppComponent]

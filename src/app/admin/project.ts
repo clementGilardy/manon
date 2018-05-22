@@ -14,19 +14,20 @@ export class Project {
 		this.miniature = new Image();
 	}
 
-	init(projet: Project) {
+	init(projet: Project): Project {
 		this.titre       = projet.titre;
 		this.categorie   = projet.categorie;
 		this.description = projet.description;
 		this.miniature   = projet.miniature ? projet.miniature : new Image();
 		this.images      = projet.images ? projet.images : new Array();
+		return this;
 	}
 
-	addImage() {
+	addImage(): void {
 		this.images.push(new Image());
 	}
 
-	deleteImage(image: Image) {
+	deleteImage(image: Image): void {
 		this.images = _.without(this.images, image);
 	}
 }

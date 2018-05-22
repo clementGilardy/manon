@@ -38,19 +38,4 @@ router.post('/authenticate', (req, res) => {
 	});
 });
 
-// router.post('/users', (req, res) => {
-// 	const user = {
-// 		login: 'manond',
-// 		password: 'deidara-7'
-// 	};
-// 	database.save(constants.MONGO_TABLE.USER, user).then((result, err) => {
-// 		if (err) {
-// 			res.sendStatus(500);
-// 		}
-// 		else {
-// 			res.send({user: true});
-// 		}
-// 	});
-// });
-
 module.exports = router;

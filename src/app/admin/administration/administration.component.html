@@ -1,1 +1,12 @@
 <h1>Administration</h1>
+<div *ngIf="displayForm">
+	<button class="btn" (click)="displayList = true">Liste</button>
+	<button class="btn" (click)="displayList = false">Ajouter un projet</button>
+	<br>
+	<app-listproject [projects]="projects" *ngIf="displayList"></app-listproject>
+	<app-addproject [projects]="projects" *ngIf="!displayList"></app-addproject>
+</div>
+
+<div *ngIf="!displayForm">
+	<app-login (log)="displayForm = $event"></app-login>
+</div>

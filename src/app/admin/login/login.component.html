@@ -1,0 +1,9 @@
+<form [formGroup]="form">
+	<div *ngFor="let prop of loginProp">
+		<div class="input-field col s6">
+			<input [formControlName]="prop.key" [type]="prop.type" class="validate">
+			<label>{{prop.label}}</label>
+		</div>
+	</div>
+	<button (click)="connect()" class="btn">Connection</button>
+</form>

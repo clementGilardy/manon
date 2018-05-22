@@ -13,7 +13,7 @@ export class Image {
 		this.img         = null;
 	}
 
-	handleFileInput(event: any) {
+	handleFileInput(event: any): void {
 		if (event.target.files.length > 0) {
 			let reader = new FileReader();
 			const file = event.target.files.item(0);
