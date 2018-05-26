@@ -1,2 +1,21 @@
 <app-navproject></app-navproject>
+<div class="content">
+	<div class="projects">
+		<div class="intro">
+			<h1>Projets</h1>
+		</div>
+		<div class="all-project">
+			<div class="all-projects">
+				<div *ngFor="let projet of projects" class="project">
+					<a href="/projects/{{projet._id}}">
+						<img height="300px"
+						     src="http://localhost:3000/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+						     alt="">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <app-footer></app-footer>

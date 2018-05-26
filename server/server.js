@@ -30,6 +30,8 @@ app.use(function (req, res, next) {
 		next();
 	}
 });
+
+app.use('/uploads', express.static('./server/uploads'));
 app.use(constants.API_PREFIX, mail);
 app.use(constants.API_PREFIX, users);
 app.use(constants.API_PREFIX, project);

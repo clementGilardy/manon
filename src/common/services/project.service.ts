@@ -22,4 +22,10 @@ export class ProjectService extends DatabaseService {
 		return this.http.post(this.base + u, project, {headers: headers});
 	}
 
+	delete(id: string) {
+		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
+		const u       = '/api/admin/projects';
+		return this.http.delete(this.base + u + '/' + id, {headers: headers}).toPromise();
+	}
+
 }

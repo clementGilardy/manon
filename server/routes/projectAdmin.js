@@ -4,6 +4,20 @@ const router    = express.Router();
 const database  = require('../database/database');
 const fs        = require('fs');
 const utils     = require('../utils/utils');
+const ObjectId  = require('mongodb').ObjectId;
+
+
+router.delete('/projects/:id', (req, res) => {
+	database.del(constants.MONGO_TABLE.PROJECTS, {_id: ObjectId(req.params.id)}).then((result, err) => {
+		if (err) {
+			res.sendStatus(500).send({projetDelete: false});
+		}
+		else {
+			console.log(result);
+			res.send({projetDelete: true});
+		}
+	});
+});
 
 router.post('/projects', (req, res) => {
 	const projet          = req.body;

@@ -1,6 +1,39 @@
 header {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100px;
+	height: 80px;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 50px;
+}
+
+.projects {
+	width: 70%;
+}
+
+.intro {
+	font-family: DosisBook;
+	text-align: center;
+}
+
+.intro::after {
+	content: url("../../assets/img/soustitre.png");
+}
+
+.all-project {
+	margin-top: 50px;
+	display: inline-block;
+}
+
+.all-project img {
+	margin: 5px;
+}
+
+@media (max-width: 980px) {
+	.content img {
+		height: 200px;
+	}
 }

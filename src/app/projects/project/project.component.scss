@@ -1,0 +1,158 @@
+@media (min-width: 1801px) {
+
+	header {
+		height: 80px;
+	}
+
+	.single {
+		margin-top: 50px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.project {
+		display: flex;
+		flex-direction: column;
+		width: 85%;
+	}
+
+	.description {
+		position: fixed;
+		width: 35%;
+		right: 0;
+	}
+
+	.text-intro {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.text-intro::after {
+		display: flex;
+		justify-content: right;
+		margin-right: 50px;
+		content: url('../../../assets/img/trait-one-project.png');
+	}
+
+	.description h1 {
+		margin: 0 0 15px 0;
+		font-family: DosisBook;
+	}
+
+	.description .titre-projet::after {
+		margin: -20px 0 0 10%;
+		content: url("../../../assets/img/soustitre.png");
+	}
+
+	.text-intro h2 {
+		font-size: 26px;
+		font-family: RalewayLight;
+	}
+
+	.text-intro p {
+		font-family: RobotoLight;
+		width: 70%;
+	}
+
+	.navigation {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 30px;
+		margin-right: 25%;
+	}
+
+	.arrow a {
+		margin-right: 20px;
+	}
+
+	.imageProjet {
+		margin-bottom: 30px;
+	}
+
+	.retour a {
+		text-decoration: underline;
+		color: black;
+		font-family: RalewayLight;
+	}
+}
+
+@media (max-width: 1800px) {
+
+	header {
+		height: 80px;
+	}
+
+	.single {
+		margin-top: 50px;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.project {
+		display: flex;
+		flex-direction: column;
+		width: 85%;
+	}
+
+	.description {
+		margin-top: 0px;
+	}
+
+	.text-intro {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.description h1 {
+		margin: 0 0 15px 0;
+		font-family: DosisBook;
+	}
+
+	.description .titre-projet::after {
+		margin: -20px 0 0 10%;
+		content: url("../../../assets/img/soustitre.png");
+	}
+
+	.text-intro h2 {
+		font-size: 26px;
+		font-family: RalewayLight;
+	}
+
+	.text-intro p {
+		font-family: RobotoLight;
+		width: 70%;
+	}
+
+	.navigation-mobile {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	}
+
+	.navigation {
+		display: none;
+		justify-content: space-between;
+		margin-top: 30px;
+		margin-right: 25%;
+	}
+
+	.arrow a {
+		margin-right: 20px;
+	}
+
+	.imageProjet {
+		margin-bottom: 30px;
+	}
+
+	.imageProjet img {
+		width: 100%;
+	}
+
+	.retour a {
+		text-decoration: underline;
+		color: black;
+		font-family: RalewayLight;
+	}
+}

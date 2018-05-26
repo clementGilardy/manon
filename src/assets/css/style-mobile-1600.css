@@ -13,13 +13,13 @@
     }
 
     nav ul li a:hover {
-        background: none;
+        /*background: none;*/
         color: #387977;
         border-bottom: 2px solid #c59d58;
     }
 
     nav ul li.active {
-        background: none;
+        /*background: none;*/
         color: #387977;
         border-bottom: 2px solid #c59d58;
     }

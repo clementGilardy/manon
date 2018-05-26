@@ -1,3 +1,4 @@
+{{projects|json}}
 <table *ngIf="projects.length > 0">
 	<tr>
 		<th>Titre</th>
@@ -7,7 +8,7 @@
 	<tr *ngFor="let projet of projects">
 		<td>{{projet.titre}}</td>
 		<td>{{projet.categorie}}</td>
-		<td><button class="btn">Supprimer</button></td>
+		<td><button (click)="deleteProjet(projet.id)" class="btn">Supprimer</button></td>
 	</tr>
 </table>
 <span *ngIf="projects.length === 0">Aucun projet</span>

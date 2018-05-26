@@ -4392,7 +4392,7 @@ nav ul li {
 }
 
 nav ul li.active {
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 nav ul a {
@@ -4417,7 +4417,7 @@ nav ul a.btn > .material-icons, nav ul a.btn-large > .material-icons, nav ul a.b
 }
 
 nav ul a:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 nav ul.left {
@@ -5509,7 +5509,7 @@ button.btn-floating {
 }
 
 .btn-flat:focus {
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 .btn-flat.disabled {
@@ -6877,7 +6877,7 @@ textarea.materialize-textarea {
   border-radius: 50%;
   -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 [type="checkbox"]:checked + span:not(.lever):before {
@@ -6988,7 +6988,7 @@ textarea.materialize-textarea {
 [type="checkbox"].filled-in.tabbed:focus + span:not(.lever):after {
   border-radius: 2px;
   border-color: #5a5a5a;
-  background-color: rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(0, 0, 0, 0.1);*/
 }
 
 [type="checkbox"].filled-in.tabbed:checked:focus + span:not(.lever):after {
@@ -7548,7 +7548,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 }
 
 .sidenav li.active {
-  background-color: rgba(0, 0, 0, 0.05);
+  /*background-color: rgba(0, 0, 0, 0.05);*/
 }
 
 .sidenav li > a {
@@ -7562,7 +7562,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 }
 
 .sidenav li > a:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  /*background-color: rgba(0, 0, 0, 0.05);*/
 }
 
 .sidenav li > a.btn, .sidenav li > a.btn-large, .sidenav li > a.btn-small, .sidenav li > a.btn-large, .sidenav li > a.btn-flat, .sidenav li > a.btn-floating {

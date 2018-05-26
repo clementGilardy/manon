@@ -2,6 +2,7 @@ import { Image } from "app/admin/image";
 import * as _ from 'lodash';
 
 export class Project {
+	public id: string;
 	public titre: string;
 	public categorie: string;
 	public description: string;
@@ -15,6 +16,7 @@ export class Project {
 	}
 
 	init(projet: Project): Project {
+		this.id          = projet.id || projet['_id'];
 		this.titre       = projet.titre;
 		this.categorie   = projet.categorie;
 		this.description = projet.description;

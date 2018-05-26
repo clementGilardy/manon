@@ -1,1 +1,28 @@
-<app-nav></app-nav>
+<app-navproject></app-navproject>
+<div class="single">
+	<div class="project">
+		<div class="description">
+			<div class="titre-projet">
+				<h1>{{ project.titre }}</h1>
+			</div>
+			<div class="text-intro">
+				<h2>{{ project.categorie }}</h2>
+				<p>{{ project.description }}</p>
+			</div>
+			<div class="navigation">
+				<div class="retour">
+					<a href="/project">RETOUR</a>
+				</div>
+			</div>
+		</div>
+		<div class="imageProjet">
+			<img src="http://localhost:3000/uploads/{{project.miniature.name}}.{{project.miniature.extension}}" alt="image">
+			<img *ngFor="let image of project.images" src="http://localhost:3000/uploads/{{image.name}}.{{image.extension}}" alt="image">
+		</div>
+		<div class="navigation-mobile">
+			<div class="retour">
+				<a href="/projects">RETOUR</a>
+			</div>
+		</div>
+	</div>
+</div>

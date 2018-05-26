@@ -10,6 +10,14 @@ import { ProjectService } from "common/services/project.service";
 export class ListProjectComponent {
 	@Input() projects: Array<Project>;
 
-	constructor() {
+	constructor(private projectService: ProjectService) {
+	}
+
+	deleteProjet(id: string) {
+		this.projectService.delete(id).then((result) => {
+			console.log(result);
+		}).catch((err) => {
+			console.log(err);
+		});
 	}
 }

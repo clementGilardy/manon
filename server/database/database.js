@@ -5,7 +5,8 @@ const Q           = require('q');
 
 module.exports = {
 	save,
-	find
+	find,
+	del
 };
 
 function find(docName, filter) {
@@ -19,6 +20,21 @@ function find(docName, filter) {
 				else {
 					deffered.resolve(result);
 				}
+			});
+		});
+	
+	return deffered.promise;
+}
+
+function del(docName, data) {
+	const deffered = Q.defer();
+	getMongoDB()
+		.then((dbConnection) => {
+			dbConnection.collection(docName).remove(data,{justOne:true}, function (err, result) {
+				if (err)
+					deffered.reject(err);
+				else
+					deffered.resolve(result);
 			});
 		});
 	
