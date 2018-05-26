@@ -1,4 +1,4 @@
-<div class="contact" id="contact">
+<form [formGroup]="form" class="contact" id="contact">
 	<div class="titre">
 		<h1>Contact</h1>
 	</div>
@@ -11,21 +11,30 @@
 	<div id="form-contact">
 		<div class="left-contact">
 			<div class="input-field">
-				<input type="text" id="nom" name="nom" [(ngModel)]="contact.nom">
+				<input class="validate"
+				       [ngClass]="{'valid':form.controls['nom'].valid && form.controls['nom'].dirty,
+				       'invalid':form.controls['nom'].invalid && form.controls['nom'].dirty}"
+				       type="text" id="nom" name="nom" formControlName="nom" required>
 				<label for="nom">Nom</label>
 			</div>
 			<div class="input-field">
-				<input type="text" id="prenom" name="prenom" [(ngModel)]="contact.prenom">
+				<input class="validate" [ngClass]="{'valid':form.controls['prenom'].valid && form.controls['prenom'].dirty,
+				       'invalid':form.controls['prenom'].invalid && form.controls['prenom'].dirty}" type="text"
+				       id="prenom" name="prenom" formControlName="prenom" required>
 				<label for="prenom">Prenom</label>
 			</div>
 			<div class="input-field">
-				<input type="text" id="email" name="email" [(ngModel)]="contact.email">
+				<input class="validate" [ngClass]="{'valid':form.controls['email'].valid && form.controls['email'].dirty,
+				       'invalid':form.controls['email'].invalid && form.controls['email'].dirty}" type="text" id="email"
+				       name="email" formControlName="email" required>
 				<label for="email">Email</label>
 			</div>
 		</div>
 		<div class="right-contact">
 			<div class="input-field">
-				<textarea name="message" id="message" cols="30" rows="10" [(ngModel)]="contact.message"></textarea>
+				<textarea class="validate" [ngClass]="{'valid':form.controls['message'].valid && form.controls['message'].dirty,
+				       'invalid':form.controls['message'].invalid && form.controls['message'].dirty}" name="message"
+				          id="message" cols="30" rows="10" formControlName="message" required></textarea>
 				<label for="message">Message</label>
 			</div>
 		</div>
@@ -35,4 +44,4 @@
 			<button id="envoyer" (click)="sendMail()" class="btn">Envoyer</button>
 		</div>
 	</div>
-</div>
+</form>

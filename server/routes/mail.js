@@ -16,7 +16,7 @@ router.post('/mail', (req, res) => {
 	const mailOptions = {
 		from: contact.email,
 		to: 'gilardy.clement@gmail.com',
-		subject: 'Formulaire de contact Manon Delage',
+		subject: 'Formulaire de contact ' + contact.prenom + ' ' + contact.nom,
 		text: contact.message
 	};
 	transporter.sendMail(mailOptions, function (error) {
