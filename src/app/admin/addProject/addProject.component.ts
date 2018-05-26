@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
-import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
 	           selector   : 'app-addproject',
