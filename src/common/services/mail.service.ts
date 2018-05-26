@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { DatabaseService } from "common/services/database.service";
-import { Contact } from "app/accueil/contact/contact";
 
 @Injectable()
 export class MailService extends DatabaseService {
@@ -11,7 +10,7 @@ export class MailService extends DatabaseService {
 		this.url = '/api/mail'
 	}
 
-	sendMail(obj: Contact) {
+	sendMail(obj: any) {
 		return this.http.post(this.base + this.url, obj).toPromise();
 	}
 }
