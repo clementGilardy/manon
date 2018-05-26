@@ -6,6 +6,7 @@ const Q           = require('q');
 module.exports = {
 	save,
 	find,
+	findLimit,
 	del
 };
 
@@ -26,11 +27,31 @@ function find(docName, filter) {
 	return deffered.promise;
 }
 
+function findLimit(docName, filter, limit) {
+	const deffered = Q.defer();
+	getMongoDB()
+		.then((dbConnection) => {
+			dbConnection.collection(docName)
+				.find(filter)
+				.limit(+limit)
+				.toArray(function (err, result) {
+					if (err) {
+						deffered.reject(err);
+					}
+					else {
+						deffered.resolve(result);
+					}
+				});
+		});
+	
+	return deffered.promise;
+}
+
 function del(docName, data) {
 	const deffered = Q.defer();
 	getMongoDB()
 		.then((dbConnection) => {
-			dbConnection.collection(docName).remove(data,{justOne:true}, function (err, result) {
+			dbConnection.collection(docName).remove(data, {justOne: true}, function (err, result) {
 				if (err)
 					deffered.reject(err);
 				else

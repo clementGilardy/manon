@@ -16,6 +16,10 @@ export class DatabaseService {
 		return this.http.get(this.base + this.url).toPromise();
 	}
 
+	getByLimit(limit: number) {
+		return this.http.get(this.base + this.url + '/limit/' + limit).toPromise();
+	}
+
 	get(id: string) {
 		return this.http.get(this.base + this.url + '/' + id).toPromise();
 	}

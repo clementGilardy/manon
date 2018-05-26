@@ -15,8 +15,7 @@ export class ProjectComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.projectService.getAll().then((result: Array<Project>) => {
-			console.log(result);
+		this.projectService.getByLimit(3).then((result: Array<Project>) => {
 			this.projects = result;
 		});
 	}

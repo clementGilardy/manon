@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
+import { FormControl, FormGroup } from "@angular/forms";
 
 @Component({
 	           selector   : 'app-addproject',
 	           templateUrl: 'addProject.component.html',
 	           styleUrls  : ['addProject.component.scss']
            })
-export class AddProjectComponent {
+export class AddProjectComponent  {
 	@Input() projects: Array<Project>;
 	public project: Project;
 
@@ -21,8 +22,8 @@ export class AddProjectComponent {
 		    .subscribe((result) => {
 			    this.projects.push(this.project);
 			    console.log(result);
-		    },(err)=>{
-		    	console.log(err);
+		    }, (err) => {
+			    console.log(err);
 		    });
 	}
 }
