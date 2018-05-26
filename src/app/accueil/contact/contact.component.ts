@@ -9,12 +9,27 @@ import { MailService } from "common/services/mail.service";
            })
 export class ContactComponent {
 	public contact: Contact;
+	public mailSend: boolean;
+	public mailSendFail: boolean;
 
-	constructor(private mail:MailService) {
-		this.contact = new Contact();
+	constructor(private mail: MailService) {
+		this.mailSend     = false;
+		this.mailSendFail = false;
+		this.contact      = new Contact();
 	}
 
-	sendMail(){
-		this.mail.sendMail(this.contact);
+	sendMail() {
+		this.mail.sendMail(this.contact).then((result: any) => {
+			this.mailSend = result['send'];
+			setTimeout(() => {
+				this.mailSend = false;
+			}, 10000);
+		}).catch(() => {
+			this.mailSend     = false;
+			this.mailSendFail = true;
+			setTimeout(() => {
+				this.mailSendFail = false;
+			}, 10000);
+		});
 	}
 }

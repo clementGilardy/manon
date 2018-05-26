@@ -12,10 +12,6 @@ export class MailService extends DatabaseService {
 	}
 
 	sendMail(obj: Contact) {
-		return this.http.post(this.base + this.url, obj).subscribe((res)=>{
-			console.log(res);
-		},(err)=>{
-			console.log(err);
-		});
+		return this.http.post(this.base + this.url, obj).toPromise();
 	}
 }

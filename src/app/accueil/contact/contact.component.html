@@ -2,6 +2,12 @@
 	<div class="titre">
 		<h1>Contact</h1>
 	</div>
+	<div class="send-success" *ngIf="mailSend">
+		Le mail à bien été envoyé !
+	</div>
+	<div class="send-error" *ngIf="mailSendFail">
+		Une erreur est survenue pendant l'envoie du mail !
+	</div>
 	<div id="form-contact">
 		<div class="left-contact">
 			<div class="input-field">
