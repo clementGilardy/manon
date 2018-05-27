@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
+import * as _ from 'lodash';
 
 @Component({
 	           selector   : 'app-listproject',
@@ -9,13 +10,16 @@ import { ProjectService } from "common/services/project.service";
            })
 export class ListProjectComponent {
 	@Input() projects: Array<Project>;
+	@Output() delete: EventEmitter<Array<Project>>;
 
 	constructor(private projectService: ProjectService) {
+		this.delete = new EventEmitter<Array<Project>>();
 	}
 
-	deleteProjet(id: string) {
-		this.projectService.delete(id).then((result) => {
-			console.log(result);
+	deleteProjet(project: Project) {
+		this.projectService.delete(project.id).then(() => {
+			this.projects = _.without(this.projects, project);
+			this.delete.emit(this.projects);
 		}).catch((err) => {
 			console.log(err);
 		});

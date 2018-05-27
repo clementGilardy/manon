@@ -1,4 +1,7 @@
 <div class="row">
+	<div *ngIf="isAdd">
+		Ajout du projet réussi !
+	</div>
 	<div class="input-field col s6">
 		<input id="titre" type="text" [(ngModel)]="project.titre" class="validate">
 		<label for="titre">Titre</label>

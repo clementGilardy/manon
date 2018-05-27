@@ -6,11 +6,13 @@ export class Image {
 	public type: string;
 	public extension: string;
 	public img: any;
+	public createAt: Date;
 
 	constructor() {
 		this.name        = moment().format('x');
 		this.description = '';
 		this.img         = null;
+		this.createAt    = new Date();
 	}
 
 	handleFileInput(event: any): void {
@@ -23,6 +25,7 @@ export class Image {
 				this.img       = reader.result.split(',')[1];
 				this.extension = file.name.split('.').pop();
 				this.type      = file.type;
+				this.createAt  = new Date();
 			};
 		}
 	}

@@ -8,11 +8,13 @@ export class Project {
 	public description: string;
 	public miniature: Image;
 	public images: Array<Image>;
+	public createAt: Date;
 
 	constructor() {
 		this.images    = new Array<Image>();
 		this.images    = [new Image()];
 		this.miniature = new Image();
+		this.createAt  = new Date();
 	}
 
 	init(projet: Project): Project {
@@ -22,6 +24,7 @@ export class Project {
 		this.description = projet.description;
 		this.miniature   = projet.miniature ? projet.miniature : new Image();
 		this.images      = projet.images ? projet.images : new Array();
+		this.createAt    = projet.createAt;
 		return this;
 	}
 

@@ -5,7 +5,7 @@
 	<div class="projectContainer">
 		<div class="projects">
 			<a *ngFor="let projet of projects" class="link-img" href="/projects/{{projet._id}}">
-				<img class="vignette" height="300px" src="http://localhost:3000/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}" alt="image">
+				<img class="vignette" height="300px" src="http://localhost:8080/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}" alt="image">
 			</a>
 		</div>
 	</div>

@@ -7,7 +7,7 @@
 	<tr *ngFor="let projet of projects">
 		<td>{{projet.titre}}</td>
 		<td>{{projet.categorie}}</td>
-		<td><button (click)="deleteProjet(projet.id)" class="btn">Supprimer</button></td>
+		<td><button (click)="deleteProjet(projet)" class="btn">Supprimer</button></td>
 	</tr>
 </table>
 <span *ngIf="projects.length === 0">Aucun projet</span>

@@ -70,7 +70,7 @@ function save(docName, dataInsert) {
 				if (err)
 					deffered.reject(err);
 				else
-					deffered.resolve(result);
+					deffered.resolve(result.ops[0]);
 			});
 		});
 	

@@ -37,6 +37,10 @@ export class AdministrationComponent {
 		return moment().isBefore(this.getExpiration());
 	}
 
+	public remakeProjects(event: Array<Project>) {
+		this.projects = event;
+	}
+
 	getExpiration() {
 		const expiration = localStorage.getItem("expire_at");
 		return moment(expiration);

@@ -9,7 +9,7 @@ export class DatabaseService {
 
 
 	constructor(protected http: HttpClient) {
-		this.base = 'http://localhost:3000';
+		this.base = 'http://localhost:8080';
 	}
 
 	getAll() {

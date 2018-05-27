@@ -7,9 +7,10 @@ import { ProjectService } from "common/services/project.service";
 	           templateUrl: 'addProject.component.html',
 	           styleUrls  : ['addProject.component.scss']
            })
-export class AddProjectComponent  {
+export class AddProjectComponent {
 	@Input() projects: Array<Project>;
 	public project: Project;
+	public isAdd: boolean;
 
 	constructor(private projectService: ProjectService) {
 		this.project = new Project();
@@ -18,11 +19,12 @@ export class AddProjectComponent  {
 	addProject() {
 		this.projectService
 		    .saveProject(this.project)
-		    .subscribe((result) => {
+		    .subscribe((res: any) => {
+			    this.project.id = res.project._id;
 			    this.projects.push(this.project);
-			    console.log(result);
-		    }, (err) => {
-			    console.log(err);
+			    this.isAdd = true;
+		    }, () => {
+			    this.isAdd = false;
 		    });
 	}
 }

@@ -13,7 +13,6 @@ router.delete('/projects/:id', (req, res) => {
 			res.sendStatus(500).send({projetDelete: false});
 		}
 		else {
-			console.log(result);
 			res.send({projetDelete: true});
 		}
 	});
@@ -36,13 +35,11 @@ router.post('/projects', (req, res) => {
 			imageBuffer = Buffer.from(image.img, constants.ENCODAGE);
 			fs.appendFile(constants.PATH_UPLOAD + image.name + constants.DOT + image.extension, imageBuffer, (err) => {
 				if (err) console.log(err);
-				console.log('write success');
 			});
 			projectToInsert.images.push({name: image.name, extension: image.extension, description: image.description});
 		});
 		await fs.appendFile(constants.PATH_UPLOAD + projet.miniature.name + constants.DOT + projet.miniature.extension, minBuffer, (err) => {
 			if (err) console.log(err);
-			console.log('write success miniature');
 			projectToInsert.miniature = {
 				name: projet.miniature.name,
 				extension: projet.miniature.extension,
@@ -54,7 +51,7 @@ router.post('/projects', (req, res) => {
 				res.sendStatus(500);
 			}
 			else {
-				res.send({projet: true});
+				res.send({add: true,project:result});
 			}
 		});
 	};
