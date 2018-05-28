@@ -4,26 +4,22 @@
 	</div>
 	<div id="form-contact">
 		<div class="input-field">
-			<input class="validate" [ngClass]="{'valid':form.controls['nom'].valid && form.controls['nom'].dirty,
-				       'invalid':form.controls['nom'].invalid && form.controls['nom'].dirty}" type="text" id="nom"
+			<input class="validate" type="text" id="nom"
 			       name="nom" required>
 			<label for="nom">Nom</label>
 		</div>
 		<div class="input-field">
-			<input class="validate" [ngClass]="{'valid':form.controls['prenom'].valid && form.controls['prenom'].dirty,
-				       'invalid':form.controls['prenom'].invalid && form.controls['prenom'].dirty}" type="text"
+			<input class="validate" type="text"
 			       id="prenom" name="prenom" required>
 			<label for="prenom">Prenom</label>
 		</div>
 		<div class="input-field">
-			<input class="validate" [ngClass]="{'valid':form.controls['email'].valid && form.controls['email'].dirty,
-				       'invalid':form.controls['email'].invalid && form.controls['email'].dirty}" type="text" id="email"
+			<input class="validate" type="text" id="email"
 			       name="email" required>
 			<label for="email">Email</label>
 		</div>
 		<div class="input-field">
-			<textarea class="validate" [ngClass]="{'valid':form.controls['message'].valid && form.controls['message'].dirty,
-				       'invalid':form.controls['message'].invalid && form.controls['message'].dirty}" type="text"
+			<textarea class="materialize-textarea validate" type="text"
 			          name="message" id="message" cols="30" rows="10" required></textarea>
 			<label for="message">Message</label>
 		</div>
