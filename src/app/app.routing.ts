@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from "app/accueil/home/home.component";
 import { ProjectsComponent } from "app/projects/projects.component";
 import { ProjectComponent } from "app/projects/project/project.component";
+import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFound.component";
 
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
@@ -12,13 +13,14 @@ const appRoutes: Routes = [
 		path      : '',
 		redirectTo: '/',
 		pathMatch : 'full'
-	}
+	},
+	{path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
 	          imports: [
 		          RouterModule.forRoot(
-			          appRoutes, {useHash:true}
+			          appRoutes, {useHash: true}
 		          )
 	          ],
 	          exports: [

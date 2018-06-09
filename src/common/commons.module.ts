@@ -4,6 +4,7 @@ import { FooterComponent } from "common/components/footer/footer.component";
 import { NavComponent } from "common/components/nav/nav.component";
 import { ProjectService } from "common/services/project.service";
 import { RouterModule } from "@angular/router";
+import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFound.component";
 
 @NgModule({
 	          exports     : [FooterComponent, NavComponent],
@@ -13,7 +14,8 @@ import { RouterModule } from "@angular/router";
 	          ],
 	          declarations: [
 		          FooterComponent,
-		          NavComponent
+		          NavComponent,
+		          PageNotFoundComponent
 	          ],
 	          providers   : [ProjectService],
 	          bootstrap   : []
