@@ -4,7 +4,9 @@ const router    = express.Router();
 const database  = require('../database/database');
 const fs        = require('fs');
 const utils     = require('../utils/utils');
+const path      = require('path');
 const ObjectId  = require('mongodb').ObjectId;
+const logger    = require('node-logger').createLogger('project.log');
 
 
 router.delete('/projects/:id', (req, res) => {
@@ -33,13 +35,27 @@ router.post('/projects', (req, res) => {
 	const start = async () => {
 		await utils.asyncForEach(projet.images, async (image) => {
 			imageBuffer = Buffer.from(image.img, constants.ENCODAGE);
-			fs.appendFile(constants.PATH_UPLOAD + image.name + constants.DOT + image.extension, imageBuffer, (err) => {
-				if (err) console.log(err);
+			
+			logger.info('path of file uploads : ');
+			logger.info(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension));
+			fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension), imageBuffer, (err) => {
+				if (err) {
+					logger.error('picture not write');
+					logger.error(err);
+				}
+				else {
+					logger.info('picture write');
+				}
 			});
 			projectToInsert.images.push({name: image.name, extension: image.extension, description: image.description});
 		});
-		await fs.appendFile(constants.PATH_UPLOAD + projet.miniature.name + constants.DOT + projet.miniature.extension, minBuffer, (err) => {
-			if (err) console.log(err);
+		await fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, projet.miniature.name + constants.DOT + projet.miniature.extension), minBuffer, (err) => {
+			if (err) {
+				logger.error('picture not write miniature');
+				logger.error(err);
+			} else {
+				logger.info('picture write miniature');
+			}
 			projectToInsert.miniature = {
 				name: projet.miniature.name,
 				extension: projet.miniature.extension,
@@ -51,7 +67,7 @@ router.post('/projects', (req, res) => {
 				res.sendStatus(500);
 			}
 			else {
-				res.send({add: true,project:result});
+				res.send({add: true, project: result});
 			}
 		});
 	};

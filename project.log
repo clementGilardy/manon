@@ -1,0 +1,18 @@
+
+info [Fri Jun 08 2018 19:06:49 GMT+0000 (UTC)]  path of file uploads : 
+info [Fri Jun 08 2018 19:06:49 GMT+0000 (UTC)]  /srv/data/web/vhosts/default/uploads/1528484648982.jpg
+error [Fri Jun 08 2018 19:06:49 GMT+0000 (UTC)]  picture write miniature
+info [Fri Jun 08 2018 19:06:49 GMT+0000 (UTC)]  picture write
+info [Fri Jun 08 2018 19:07:36 GMT+0000 (UTC)]  path of file uploads : 
+info [Fri Jun 08 2018 19:07:36 GMT+0000 (UTC)]  /srv/data/web/vhosts/default/uploads/1528484854967.jpg
+error [Fri Jun 08 2018 19:07:36 GMT+0000 (UTC)]  picture write miniature
+info [Fri Jun 08 2018 19:07:36 GMT+0000 (UTC)]  picture write
+info [Fri Jun 08 2018 19:14:56 GMT+0000 (UTC)]  path of file uploads : 
+info [Fri Jun 08 2018 19:14:56 GMT+0000 (UTC)]  /srv/data/web/vhosts/default/uploads/1528485295735.jpg
+error [Fri Jun 08 2018 19:14:57 GMT+0000 (UTC)]  picture write miniature
+info [Fri Jun 08 2018 19:14:57 GMT+0000 (UTC)]  picture write
+info [Sat Jun 09 2018 14:42:43 GMT+0000 (UTC)]  path of file uploads : 
+info [Sat Jun 09 2018 14:42:43 GMT+0000 (UTC)]  /srv/data/web/vhosts/default/uploads/1528555361440.jpg
+error [Sat Jun 09 2018 14:42:43 GMT+0000 (UTC)]  picture write miniature
+info [Sat Jun 09 2018 14:42:43 GMT+0000 (UTC)]  picture write
+

@@ -18,10 +18,13 @@ export class ListProjectComponent {
 
 	deleteProjet(project: Project) {
 		this.projectService.delete(project.id).then(() => {
-			this.projects = _.without(this.projects, project);
-			this.delete.emit(this.projects);
+			_.remove(this.projects, (p: Project) => {
+				return p.id === project.id;
+			})
 		}).catch((err) => {
 			console.log(err);
 		});
 	}
+
+
 }

@@ -4,13 +4,14 @@
 	</div>
 	<div class="projectContainer">
 		<div class="projects">
-			<a *ngFor="let projet of projects" class="link-img" href="/projects/{{projet._id}}">
-				<img class="vignette" height="300px" src="http://localhost:8080/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}" alt="image">
+			<a *ngFor="let projet of projects" class="link-img" routerLink="/projects/{{projet._id}}">
+				<img class="vignette" height="300px"
+				     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}" alt="image">
 			</a>
 		</div>
 	</div>
 	<div class="lienProject">
-		<a href="/projects">Découvrez tous mes projets</a>
+		<a routerLink="projects">Découvrez tous mes projets</a>
 		<img height="15px" src="../../../assets/img/arrowright.png" alt="fleche de droite">
 	</div>
 </div>

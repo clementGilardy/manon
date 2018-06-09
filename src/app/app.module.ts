@@ -20,7 +20,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 		          ProjectsModule,
 		          AdminModule,
 		          ReactiveFormsModule,
-		          FormsModule
+		          FormsModule,
 	          ],
 	          providers   : [],
 	          bootstrap   : [AppComponent]

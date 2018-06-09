@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NavaccueilComponent } from "app/accueil/nav-accueil/navaccueil.component";
 import { MailService } from "common/services/mail.service";
 import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
 	          imports     : [
@@ -19,7 +20,8 @@ import { HttpClientModule } from "@angular/common/http";
 		          CommonsModule,
 		          FormsModule,
 		          ReactiveFormsModule,
-		          HttpClientModule
+		          HttpClientModule,
+		          RouterModule
 	          ],
 	          declarations: [
 		          HomeComponent,

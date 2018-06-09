@@ -1,5 +1,5 @@
 @media (max-width: 1600px) and (min-width:980px) {
-    nav#home {
+    nav#nav-princ {
         position: fixed;
         box-shadow: none;
         -webkit-box-shadow: none;

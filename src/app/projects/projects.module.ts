@@ -4,11 +4,13 @@ import { ProjectsComponent } from "app/projects/projects.component";
 import { ProjectComponent } from "app/projects/project/project.component";
 import { CommonsModule } from "common/commons.module";
 import { NavprojectComponent } from "app/projects/nav-project/navproject.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
 	          imports     : [
 		          BrowserModule,
-		          CommonsModule
+		          CommonsModule,
+		          RouterModule
 	          ],
 	          declarations: [
 		          ProjectsComponent,
