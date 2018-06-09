@@ -4,7 +4,6 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
 	service: 'gmail',
-	secure: true,
 	auth: {
 		user: 'gilardy.clement@gmail.com',
 		pass: 'vetbopen36'
@@ -21,7 +20,8 @@ router.post('/mail', (req, res) => {
 	};
 	transporter.sendMail(mailOptions, function (error) {
 		if (error) {
-			res.sendStatus(500).send({send: false});
+			console.log(error);
+			res.send({send: false});
 		} else {
 			res.send({send: true});
 		}

@@ -12,22 +12,47 @@
         font-family: RalewayRegular;
         background: none;
     }
+    nav ul li {
+        position: relative;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+    }
+
+    nav ul li a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #C59D59;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
 
     nav ul li a:hover {
         background: none !important;
-        color: #387977;
-        border-bottom: 2px solid #c59d58;
+    }
+
+    nav ul li.active:hover {
+        border-bottom: none;
+    }
+
+    nav ul li a:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
     }
 
     nav ul li.active {
         background: none !important;
-        color: #387977;
-        border-bottom: 2px solid #c59d58;
-    }
-
-    nav ul li.active a {
-        background: none !important;
-        color: #387977;
+        color: #2C746F;
+        border-bottom: 2px solid #C59D59;
     }
 
     header .header-sans-nav {
@@ -72,7 +97,7 @@
     }
 
     #competence {
-        margin-bottom: 60px;
+        margin: 70px 0 80px 0;
     }
 
     #competence .titre {
@@ -109,9 +134,13 @@
         font-family: DosisMedium;
     }
 
+    #apropos img {
+        margin-top: -30%;
+    }
+
     #apropos {
         position: relative;
-        padding-top: 30px;
+        padding: 30px 0 30px 0;
         background: #29746e;
         color: white;
     }
@@ -231,7 +260,7 @@
     #contact {
         position: relative;
         background: #e3d6a1;
-        padding-bottom: 20px;
+        padding: 20px 0 40px 0;
     }
 
     #contact::before {
@@ -246,7 +275,7 @@
     #contact::after {
         content: url("../img/trait-footer.png");
         position: absolute;
-        margin-top: -140px;
+        margin-top: -120px;
         right: 20px;
     }
 
@@ -312,13 +341,6 @@
         margin-bottom: 10px;
         margin-left: 45%;
     }
-
-    /*.label-contact.active {*/
-        /*font-size: 25px;*/
-        /*color: white;*/
-        /*height: 20px;*/
-        /*margin-top: -15px;*/
-    /*}*/
 
     .nav-footer {
         background: #393738;

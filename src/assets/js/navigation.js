@@ -10,6 +10,12 @@ $(document).ready(function () {
 				link.className = 'active';
 			}
 		});
+		let aObj2 = $('div.left-nav-footer ul li');
+		$.each(aObj2, function (index, link) {
+			if (document.location.href.indexOf(link.firstChild.href) >= 0) {
+				link.className = 'active';
+			}
+		});
 	}
 	
 	window.onload = setActive();
