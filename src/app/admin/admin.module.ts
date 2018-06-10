@@ -10,6 +10,7 @@ import { ListProjectComponent } from "app/admin/listProject/listProject.componen
 import { LocalStorageService } from "common/services/localStorage.service";
 import { LoginComponent } from "app/admin/login/login.component";
 import { TokenService } from "common/services/token.service";
+import { AuthGuard } from "app/admin/AuthGuard";
 
 @NgModule({
 	          imports     : [
@@ -26,7 +27,7 @@ import { TokenService } from "common/services/token.service";
 		          ListProjectComponent,
 		          LoginComponent
 	          ],
-	          providers   : [LocalStorageService, TokenService],
+	          providers   : [LocalStorageService, TokenService, AuthGuard],
 	          bootstrap   : []
           })
 export class AdminModule {

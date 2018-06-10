@@ -33,11 +33,11 @@ export class AdministrationComponent {
 		}
 	}
 
-	public isLoggedIn() {
+	public isLoggedIn(): boolean {
 		return moment().isBefore(this.getExpiration());
 	}
 
-	public remakeProjects(event: Array<Project>) {
+	public remakeProjects(event: Array<Project>): void {
 		this.projects = event;
 	}
 

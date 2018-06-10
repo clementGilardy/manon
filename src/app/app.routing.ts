@@ -13,8 +13,7 @@ const appRoutes: Routes = [
 		path      : '',
 		redirectTo: '/',
 		pathMatch : 'full'
-	},
-	{path: '**', component: PageNotFoundComponent}
+	}
 ];
 
 @NgModule({
