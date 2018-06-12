@@ -11,12 +11,12 @@ export class ProjectComponent implements OnInit {
 	public projects: Array<Project>;
 
 	constructor(private projectService: ProjectService) {
-		this.projects = new Array<Project>();
-	}
-
-	ngOnInit() {
 		this.projectService.getByLimit(3).then((result: Array<Project>) => {
 			this.projects = result;
 		});
+	}
+
+	ngOnInit() {
+
 	}
 }

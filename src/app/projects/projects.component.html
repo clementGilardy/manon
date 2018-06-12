@@ -7,7 +7,7 @@
 		<div class="all-project">
 			<div class="all-projects">
 				<div *ngFor="let projet of projects" class="project">
-					<a href="/projects/{{projet._id}}">
+					<a routerLink="/projects/{{projet._id}}">
 						<img height="300px"
 						     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
 						     alt="">

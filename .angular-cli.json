@@ -29,8 +29,7 @@
         "../node_modules/materialize-css/dist/js/materialize.js",
         "assets/js/navigation.js",
         "assets/js/slick.min.js",
-        "assets/js/indexSlick.js",
-        "assets/js/scroll.js"
+        "assets/js/indexSlick.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
