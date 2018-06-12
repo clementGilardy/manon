@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { CommonsModule } from "common/commons.module";
-import { AdminComponent } from "app/admin/admin.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AdminRouting } from "app/admin/admin.routing";
 import { AdministrationComponent } from "app/admin/administration/administration.component";
@@ -11,24 +9,27 @@ import { LocalStorageService } from "common/services/localStorage.service";
 import { LoginComponent } from "app/admin/login/login.component";
 import { TokenService } from "common/services/token.service";
 import { AuthGuard } from "app/admin/AuthGuard";
+import { CommonModule } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { CategoriesComponent } from "app/admin/categories/categories.component";
 
 @NgModule({
 	          imports     : [
-		          BrowserModule,
 		          CommonsModule,
-		          ReactiveFormsModule,
+		          CommonModule,
 		          FormsModule,
+		          ReactiveFormsModule,
+		          HttpClientModule,
 		          AdminRouting
 	          ],
 	          declarations: [
-		          AdminComponent,
 		          AdministrationComponent,
 		          AddProjectComponent,
 		          ListProjectComponent,
-		          LoginComponent
+		          LoginComponent,
+		          CategoriesComponent
 	          ],
-	          providers   : [LocalStorageService, TokenService, AuthGuard],
-	          bootstrap   : []
+	          providers   : [LocalStorageService, TokenService, AuthGuard]
           })
 export class AdminModule {
 }

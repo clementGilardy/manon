@@ -1,10 +1,7 @@
 <h1>Administration</h1>
 <div *ngIf="displayForm">
-	<button class="btn" (click)="displayList = true">Liste</button>
-	<button class="btn" (click)="displayList = false">Ajouter un projet</button>
-	<br>
-	<app-listproject (delete)="remakeProjects($event)" [projects]="projects" *ngIf="displayList"></app-listproject>
-	<app-addproject [projects]="projects" *ngIf="!displayList"></app-addproject>
+	<button class="btn" routerLink="list">Liste</button>
+	<button class="btn" routerLink="add">Ajouter un projet</button>
 </div>
 
 <div *ngIf="!displayForm">

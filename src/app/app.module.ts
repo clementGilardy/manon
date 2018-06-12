@@ -1,26 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RoutingModule } from "app/app.routing";
+import { AppRoutingModule } from "app/app.routing";
+import { FormsModule } from "@angular/forms";
+import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFound.component";
 import { MaterializeModule } from "angular2-materialize";
-import { AccueilModule } from "app/accueil/accueil.module";
-import { ProjectsModule } from "app/projects/projects.module";
-import { AdminModule } from "app/admin/admin.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
 	          declarations: [
-		          AppComponent
+		          AppComponent,
+		          PageNotFoundComponent
 	          ],
 	          imports     : [
 		          BrowserModule,
-		          RoutingModule,
-		          MaterializeModule,
-		          AccueilModule,
-		          ProjectsModule,
-		          AdminModule,
-		          ReactiveFormsModule,
 		          FormsModule,
+		          MaterializeModule,
+		          AppRoutingModule
 	          ],
 	          providers   : [],
 	          bootstrap   : [AppComponent]

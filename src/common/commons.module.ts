@@ -8,14 +8,10 @@ import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFou
 
 @NgModule({
 	          exports     : [FooterComponent, NavComponent],
-	          imports     : [
-		          BrowserModule,
-		          RouterModule
-	          ],
+	          imports     : [],
 	          declarations: [
 		          FooterComponent,
-		          NavComponent,
-		          PageNotFoundComponent
+		          NavComponent
 	          ],
 	          providers   : [ProjectService],
 	          bootstrap   : []

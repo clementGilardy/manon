@@ -8,7 +8,6 @@ import { ProjectService } from "common/services/project.service";
 	           styleUrls  : ['addProject.component.scss']
            })
 export class AddProjectComponent {
-	@Input() projects: Array<Project>;
 	public project: Project;
 	public isAdd: boolean;
 
@@ -21,8 +20,7 @@ export class AddProjectComponent {
 		    .saveProject(this.project)
 		    .subscribe((res: any) => {
 			    this.project.id = res.project._id;
-			    this.projects.push(this.project);
-			    this.isAdd = true;
+			    this.isAdd      = true;
 		    }, () => {
 			    this.isAdd = false;
 		    });

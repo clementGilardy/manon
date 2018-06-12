@@ -11,12 +11,11 @@
 			</div>
 			<div class="navigation">
 				<div class="retour">
-					<a href="/project">RETOUR</a>
+					<a routerLink="project">RETOUR</a>
 				</div>
 			</div>
 		</div>
 		<div class="imageProjet">
-			<img src="/uploads/{{project.miniature.name}}.{{project.miniature.extension}}" alt="image">
 			<img *ngFor="let image of project.images" src="/uploads/{{image.name}}.{{image.extension}}" alt="image">
 		</div>
 		<div class="navigation-mobile">

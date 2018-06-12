@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Project } from "app/admin/project";
-import { ProjectService } from "common/services/project.service";
 import { LocalStorageService } from "common/services/localStorage.service";
 import { Utils } from "common/class/utils";
 import * as moment from 'moment';
@@ -11,38 +9,18 @@ import * as moment from 'moment';
 	           styleUrls  : ['administration.component.scss']
            })
 export class AdministrationComponent {
-	public projects: Array<Project>;
-	public displayList: boolean;
 	public displayForm: boolean;
 
-	constructor(private projectService: ProjectService, private localStorage: LocalStorageService) {
-		this.projects    = new Array<Project>();
-		this.displayList = true;
-		this.displayForm = false;
-
-		this.projectService.getAll().then((result: any) => {
-			result.forEach((projet: Project) => {
-				this.projects.push(new Project().init(projet));
-			});
-		}).catch((error) => {
-			console.log(error);
-		});
-
-		if (!Utils.isEmpty(this.localStorage.get('token')) && this.isLoggedIn()) {
-			this.displayForm = true;
-		}
+	constructor(private localStorage: LocalStorageService) {
+		this.displayForm = (!Utils.isEmpty(this.localStorage.get('token')) && this.isLoggedIn());
 	}
 
 	public isLoggedIn(): boolean {
 		return moment().isBefore(this.getExpiration());
 	}
 
-	public remakeProjects(event: Array<Project>): void {
-		this.projects = event;
-	}
-
 	getExpiration() {
 		const expiration = localStorage.getItem("expire_at");
-		return moment(expiration);
+		return new Date(expiration);
 	}
 }

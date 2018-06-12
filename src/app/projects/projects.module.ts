@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { ProjectsComponent } from "app/projects/projects.component";
 import { ProjectComponent } from "app/projects/project/project.component";
 import { CommonsModule } from "common/commons.module";
 import { NavprojectComponent } from "app/projects/nav-project/navproject.component";
-import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
+import { ProjectsRoutingModule } from "app/projects/projects.routing";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
 	          imports     : [
-		          BrowserModule,
 		          CommonsModule,
-		          RouterModule
+		          CommonModule,
+		          HttpClientModule,
+		          ProjectsRoutingModule
 	          ],
 	          declarations: [
 		          ProjectsComponent,
 		          ProjectComponent,
 		          NavprojectComponent
-	          ],
-	          bootstrap   : []
+	          ]
           })
 export class ProjectsModule {
 }

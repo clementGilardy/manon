@@ -1,19 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from "app/accueil/home/home.component";
-import { ProjectsComponent } from "app/projects/projects.component";
-import { ProjectComponent } from "app/projects/project/project.component";
 import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFound.component";
 
 const appRoutes: Routes = [
-	{path: '', component: HomeComponent},
-	{path: 'projects', component: ProjectsComponent},
-	{path: 'projects/:id', component: ProjectComponent},
-	{
-		path      : '',
-		redirectTo: '/',
-		pathMatch : 'full'
-	}
+	{path: '', loadChildren: 'app/accueil/accueil.module#AccueilModule'},
+	{path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule'},
+	{path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
+	{path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
@@ -26,5 +19,5 @@ const appRoutes: Routes = [
 		          RouterModule
 	          ]
           })
-export class RoutingModule {
+export class AppRoutingModule {
 }

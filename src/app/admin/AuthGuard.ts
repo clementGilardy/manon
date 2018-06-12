@@ -24,6 +24,6 @@ export class AuthGuard implements CanActivate {
 
 	getExpiration() {
 		const expiration = localStorage.getItem("expire_at");
-		return moment(expiration);
+		return new Date(expiration);
 	}
 }
