@@ -12,20 +12,47 @@
         background: none;
     }
 
+    nav ul li {
+        position: relative;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+    }
+
+    nav ul li a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #C59D59;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+    }
+
     nav ul li a:hover {
-        /*background: none;*/
-        color: #387977;
-        border-bottom: 2px solid #c59d58;
+        background: none !important;
+    }
+
+    nav ul li.active:hover {
+        border-bottom: none;
+    }
+
+    nav ul li a:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
     }
 
     nav ul li.active {
-        /*background: none;*/
-        color: #387977;
-        border-bottom: 2px solid #c59d58;
-    }
-
-    nav ul li.active a {
-        color: #387977;
+        background: none !important;
+        color: #2C746F;
+        border-bottom: 2px solid #C59D59;
     }
 
     header .header-sans-nav {
@@ -34,6 +61,13 @@
         align-items: center;
         width: 100%;
         height: 100vh;
+    }
+
+    header .header-sans-nav::after {
+        content: url("../img/trait-head-comp.png");
+        position: absolute;
+        left: 20px;
+        margin-top: 30%;
     }
 
     #title-container {
@@ -102,7 +136,7 @@
 
     #apropos {
         position: relative;
-        padding-top: 30px;
+        padding: 30px 0 30px 0;
         background: #29746e;
         color: white;
     }
@@ -117,8 +151,25 @@
         font-family: RalewayLight;
     }
 
-    .img-apropos {
-        display: none;
+    #apropos img {
+        position: relative;
+        z-index: 100;
+    }
+
+    #apropos::before {
+        z-index: 1;
+        content: url("../img/trait-apropos.png");
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #apropos::after {
+        z-index: -1;
+        content: url("../img/trait-vertapropos.png");
+        position: absolute;
+        right: 40px;
+        margin-top: -2%;
     }
 
     .titre {
@@ -187,7 +238,7 @@
         display: flex;
         justify-content: center;
         margin-top: 40px;
-        width: 100%;
+        width: 70%;
     }
 
     .projects img {
@@ -216,7 +267,23 @@
     #contact {
         position: relative;
         background: #e3d6a1;
-        padding-bottom: 20px;
+        padding: 20px 0 40px 0;
+    }
+
+    #contact::before {
+        content: url("../img/trait-contact.png");
+        position: absolute;
+        z-index: 200;
+        top: 0;
+        left: 0;
+        margin-top: -80px;
+    }
+
+    #contact::after {
+        content: url("../img/trait-footer.png");
+        position: absolute;
+        margin-top: -140px;
+        right: 20px;
     }
 
     #contact .titre {

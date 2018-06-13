@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, Inject, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
 
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
 	           templateUrl: 'navaccueil.component.html',
 	           styleUrls  : ['navaccueil.component.scss']
            })
-export class NavaccueilComponent {
+export class NavaccueilComponent implements OnInit {
 	@ViewChild('nav') navigation: ElementRef;
 	private lastScrolledTop: number;
 	private delta: number;
@@ -18,15 +18,19 @@ export class NavaccueilComponent {
 		this.delta           = 5;
 	}
 
+	ngOnInit() {
+		$(".right.button-collapse").sideNav();
+	}
+
 	@HostListener("window:scroll", [])
 	onWindowScroll() {
 		const offset = this.document.documentElement.scrollTop;
 		if (offset >= 0 && offset <= 100) {
 			$('#' + this.navigation.nativeElement.id).css('background', 'none');
-			$('#' + this.navigation.nativeElement.id+ ' a').css('color', 'white');
+			$('#' + this.navigation.nativeElement.id + ' a').css('color', 'white');
 		} else {
 			$('#' + this.navigation.nativeElement.id).css('background', 'white');
-			$('#' + this.navigation.nativeElement.id+ ' a').css('color', 'black');
+			$('#' + this.navigation.nativeElement.id + ' a').css('color', 'black');
 		}
 
 		if (offset > this.lastScrolledTop && offset > 80) {
