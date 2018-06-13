@@ -1,5 +1,13 @@
 @media (min-width: 1601px) {
 
+    .brand-logo.header img {
+        width:220px;
+    }
+
+    .three-comptence img {
+        width:200px;
+    }
+
     nav#nav-princ {
         position: fixed;
         box-shadow: none;
