@@ -108,6 +108,10 @@
         content: url("../img/soustitre.png");
     }
 
+    .three-comptence img {
+        width:200px;
+    }
+
     #competence .three-comptence {
         display: flex;
         margin-top: 70px;
