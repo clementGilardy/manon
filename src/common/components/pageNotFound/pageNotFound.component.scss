@@ -31,3 +31,15 @@
 	margin: 0;
 	font-size: 56px;
 }
+
+button {
+	font-family: DosisMedium;
+	background: #c59d58;
+	width: 200px;
+}
+
+@media (max-width: 1600px) and (min-width:980px) {
+	.text {
+		//width:500px;
+	}
+}
