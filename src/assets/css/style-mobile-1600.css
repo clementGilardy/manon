@@ -12,6 +12,11 @@
         background: none;
     }
 
+
+    .brand-logo.header img {
+        width:220px;
+    }
+
     nav ul li {
         position: relative;
     }
@@ -111,6 +116,7 @@
     .three-comptence img {
         width:200px;
     }
+
 
     #competence .three-comptence {
         display: flex;

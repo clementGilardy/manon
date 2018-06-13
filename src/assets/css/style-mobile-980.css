@@ -11,7 +11,9 @@
         font-family: RalewayRegular;
         background: none;
     }
-
+    .brand-logo.header img {
+        width:220px;
+    }
     .side-nav a {
         color: black !important;
     }
