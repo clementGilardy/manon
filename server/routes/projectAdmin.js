@@ -44,6 +44,7 @@ router.post('/projects', (req, res) => {
 					logger.error(err);
 				}
 				else {
+					console.log('insertion des images');
 					logger.info('picture write');
 				}
 			});
@@ -67,6 +68,7 @@ router.post('/projects', (req, res) => {
 				res.sendStatus(500);
 			}
 			else {
+				console.log('insertion du projet en base');
 				res.send({add: true, project: result});
 			}
 		});
