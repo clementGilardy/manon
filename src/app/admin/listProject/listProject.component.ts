@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
+import { ToastrService } from 'ngx-toastr';
+
+const options = {
+	progressBar: true
+};
 
 @Component({
 	           selector   : 'app-listproject',
@@ -10,7 +15,7 @@ import { ProjectService } from "common/services/project.service";
 export class ListProjectComponent implements OnInit {
 	public projects: Array<Project>;
 
-	constructor(private projectService: ProjectService) {
+	constructor(private projectService: ProjectService, private toast: ToastrService) {
 		this.projects = new Array<Project>();
 	}
 
@@ -25,14 +30,15 @@ export class ListProjectComponent implements OnInit {
 
 	}
 
-	deleteProjet(project: Project) {
+	/**
+	 * Supprime le projet
+	 * @param {Project} project
+	 */
+	deleteProjet(project: Project): void {
 		this.projectService.delete(project.id).then(() => {
-			console.log('is delete');
-			// _.remove(this.projects, (p: Project) => {
-			// 	return p.id === project.id;
-			// })
+			this.toast.success("Projet supprimer avec succes.", null, options);
 		}).catch((err) => {
-			console.log(err);
+			this.toast.success("Impossible de supprimer ce projet.", null, options);
 		});
 	}
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MailService } from "common/services/mail.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	           selector   : 'app-contactmobile',
@@ -9,10 +10,8 @@ import { MailService } from "common/services/mail.service";
            })
 export class ContactMobileComponent implements OnInit {
 	public form: FormGroup;
-	public mailSend: boolean;
-	public mailSendFail: boolean;
 
-	constructor(private mail: MailService) {
+	constructor(private mail: MailService, private toast: ToastrService) {
 	}
 
 	ngOnInit() {
@@ -27,17 +26,12 @@ export class ContactMobileComponent implements OnInit {
 	sendMail() {
 		if (this.form.status === 'VALID') {
 			this.mail.sendMail(this.form.value).then((result: any) => {
-				this.mailSend = result['send'];
-				setTimeout(() => {
-					this.mailSend = false;
-				}, 10000);
+				this.toast.success('Envoie du mail réussi.',null,{progressBar:true})
 			}).catch(() => {
-				this.mailSend     = false;
-				this.mailSendFail = true;
-				setTimeout(() => {
-					this.mailSendFail = false;
-				}, 10000);
+				this.toast.error("Impossible d'envoyer le mail.",null,{progressBar:true})
 			});
+		} else {
+			this.toast.error("Tous les champs sont requis et l'adresse mail doit être au bon format.",null,{progressBar:true})
 		}
 	}
 }

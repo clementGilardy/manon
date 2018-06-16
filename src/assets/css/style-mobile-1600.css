@@ -12,9 +12,12 @@
         background: none;
     }
 
-
     .brand-logo.header img {
         width:220px;
+    }
+
+    .brand-logo.header-mobile img {
+        display: none;
     }
 
     nav ul li {
@@ -359,6 +362,10 @@
         margin-top: -10px;
         margin-bottom: 10px;
         margin-left: -125%;
+    }
+
+    #envoyer:hover {
+        background: #26a69a;
     }
 
     .nav-footer {

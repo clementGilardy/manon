@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 declare var $: any;
@@ -8,7 +8,7 @@ declare var $: any;
 	           templateUrl: 'home.component.html',
 	           styleUrls  : ['home.component.scss']
            })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 	private fragment: string;
 
 	constructor(private route: ActivatedRoute) {
@@ -22,8 +22,4 @@ export class HomeComponent implements OnInit, AfterViewInit {
 				document.querySelector('#' + this.fragment).scrollIntoView();
 		});
 	}
-
-	ngAfterViewInit(): void {
-	}
-
 }

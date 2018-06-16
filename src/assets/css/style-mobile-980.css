@@ -11,8 +11,14 @@
         font-family: RalewayRegular;
         background: none;
     }
+
     .brand-logo.header img {
-        width:220px;
+        display: none;
+    }
+
+    .brand-logo.header-mobile img {
+        width:70px;
+        display: block;
     }
     .side-nav a {
         color: black !important;
@@ -326,6 +332,10 @@
     #envoyer {
         font-family: DosisMedium;
         background: #c59d58;
+    }
+
+    #envoyer:hover {
+        background: #26a69a;
     }
 
     .nav-footer {

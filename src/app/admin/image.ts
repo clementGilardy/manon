@@ -15,6 +15,10 @@ export class Image {
 		this.createAt    = new Date();
 	}
 
+	/**
+	 * Convertie une image en binaire pour pouvoir la passer au back
+	 * @param event
+	 */
 	handleFileInput(event: any): void {
 		if (event.target.files.length > 0) {
 			let reader = new FileReader();

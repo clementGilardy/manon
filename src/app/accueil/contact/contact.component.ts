@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MailService } from "common/services/mail.service";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
+
+const options = {
+	progressBar: true
+};
 
 @Component({
 	           selector   : 'app-contact',
@@ -9,12 +14,8 @@ import { FormControl, FormGroup, Validators } from "@angular/forms";
            })
 export class ContactComponent implements OnInit {
 	public form: FormGroup;
-	public mailSend: boolean;
-	public mailSendFail: boolean;
 
-	constructor(private mail: MailService) {
-		this.mailSend     = false;
-		this.mailSendFail = false;
+	constructor(private mail: MailService, private toast: ToastrService) {
 	}
 
 	ngOnInit() {
@@ -29,20 +30,18 @@ export class ContactComponent implements OnInit {
 		                          });
 	}
 
-	sendMail() {
+	/**
+	 * Envoie le mail si les champs sont remplie et si ils sont corrects
+	 */
+	sendMail():void {
 		if (this.form.status === 'VALID') {
 			this.mail.sendMail(this.form.value).then((result: any) => {
-				this.mailSend = result['send'];
-				setTimeout(() => {
-					this.mailSend = false;
-				}, 10000);
+				this.toast.success('Le mail à bien été envoyé.', null, options)
 			}).catch(() => {
-				this.mailSend     = false;
-				this.mailSendFail = true;
-				setTimeout(() => {
-					this.mailSendFail = false;
-				}, 10000);
+				this.toast.error('Une erreur est survenue pendant l\'envoie du mail', null, options)
 			});
+		} else {
+			this.toast.error("Tous les champs sont requis. Et l'adresse mail doit être au bon format.", null, options);
 		}
 	}
 }

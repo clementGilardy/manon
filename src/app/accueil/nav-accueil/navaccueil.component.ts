@@ -22,6 +22,9 @@ export class NavaccueilComponent implements OnInit {
 		$(".right.button-collapse").sideNav();
 	}
 
+	/**
+	 * Controle du scroll
+	 */
 	@HostListener("window:scroll", [])
 	onWindowScroll() {
 		const offset = this.document.documentElement.scrollTop;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from "common/services/project.service";
 import { Project } from "app/admin/project";
 import { ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
 	           selector   : 'app-project',
@@ -12,7 +13,8 @@ export class ProjectComponent implements OnInit {
 	public project: Project;
 
 	constructor(private projectService: ProjectService,
-	            private route: ActivatedRoute) {
+	            private route: ActivatedRoute,
+	            private toast: ToastrService) {
 		this.project = new Project();
 	}
 

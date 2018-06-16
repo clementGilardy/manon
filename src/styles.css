@@ -6,3 +6,7 @@
 @import "assets/css/fonts.css";
 @import "assets/css/slick.css";
 @import "assets/css/slick-theme.css";
+
+div.toast {
+    width:400px !important;
+}

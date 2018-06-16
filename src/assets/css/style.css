@@ -8,6 +8,10 @@
         width:200px;
     }
 
+    .brand-logo.header-mobile img {
+        display: none;
+    }
+
     nav#nav-princ {
         position: fixed;
         box-shadow: none;
@@ -348,6 +352,10 @@
         margin-top: -10px;
         margin-bottom: 10px;
         margin-left: 45%;
+    }
+
+    #envoyer:hover {
+        background: #26a69a;
     }
 
     .nav-footer {

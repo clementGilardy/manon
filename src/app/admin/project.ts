@@ -17,6 +17,12 @@ export class Project {
 		this.createAt  = new Date();
 	}
 
+	/**
+	 * Initiualize le projet
+	 *
+	 * @param {Project} projet
+	 * @returns {Project}
+	 */
 	init(projet: Project): Project {
 		this.id          = projet.id || projet['_id'];
 		this.titre       = projet.titre;
@@ -28,10 +34,18 @@ export class Project {
 		return this;
 	}
 
+	/**
+	 * Ajoute une image au projet
+	 */
 	addImage(): void {
 		this.images.push(new Image());
 	}
 
+
+	/**
+	 * Supprime une image du projet
+	 * @param {Image} image
+	 */
 	deleteImage(image: Image): void {
 		this.images = _.without(this.images, image);
 	}

@@ -7,16 +7,14 @@ import { Project } from "app/admin/project";
 	           templateUrl: 'project.component.html',
 	           styleUrls  : ['project.component.scss']
            })
-export class ProjectComponent implements OnInit {
+export class ProjectComponent {
 	public projects: Array<Project>;
 
 	constructor(private projectService: ProjectService) {
 		this.projectService.getByLimit(3).then((result: Array<Project>) => {
 			this.projects = result;
+		}).catch((err) => {
+			console.log(err);
 		});
-	}
-
-	ngOnInit() {
-
 	}
 }
