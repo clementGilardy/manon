@@ -1,0 +1,26 @@
+.project{
+	height: 100%;
+	position: relative;
+}
+
+.project-caption{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	padding: 5%;
+	z-index: 1;
+	display: none;
+}
+
+h2, h3 {
+	color: black;
+}
+
+h3{
+	flex: 1;
+	font-size: 1.4rem;
+	color: #425045;
+	font-weight: normal;
+	line-height: 22px;
+	letter-spacing: 1px;
+}

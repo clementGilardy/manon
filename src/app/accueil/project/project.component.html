@@ -5,8 +5,16 @@
 	<div class="projectContainer">
 		<div class="projects">
 			<a *ngFor="let projet of projects" class="link-img" routerLink="/projects/{{projet._id}}">
-				<img class="vignette" height="300px"
-				     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}" alt="image">
+				<div (mouseover)="display()" (mouseleave)="hide()" class="project">
+					<div [@enterDisplay]="enter"  #caption class="project-caption">
+						<h2>{{projet.titre}}</h2>
+						<h3>{{projet.categorie}}</h3>
+
+					</div>
+					<img [@enterOpacity]="enter" #image class="vignette" height="300px"
+					     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+					     alt="image">
+				</div>
 			</a>
 		</div>
 	</div>
