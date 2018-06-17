@@ -5,7 +5,7 @@
 	<div class="projectContainer">
 		<div class="projects">
 			<a *ngFor="let projet of projects" class="link-img" routerLink="/projects/{{projet._id}}">
-				<div (mouseover)="display()" (mouseleave)="hide()" class="project">
+				<div (mouseover)="display()" (mouseleave)="hide()" class="project-accueil">
 					<div [@enterDisplay]="enter"  #caption class="project-caption">
 						<h2>{{projet.titre}}</h2>
 						<h3>{{projet.categorie}}</h3>

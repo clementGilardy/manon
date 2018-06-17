@@ -234,10 +234,6 @@
         display: none;
     }
 
-    #project img.vignette {
-        height: 150px;
-    }
-
     #project .titre {
         padding-top: 20px;
         text-align: center;
