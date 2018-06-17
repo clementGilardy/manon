@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "environments/environment";
 
-const headers = new HttpHeaders().set('Cache-Control', 'max-age=0');
-
 @Injectable()
 export class DatabaseService {
 
@@ -16,14 +14,14 @@ export class DatabaseService {
 	}
 
 	getAll() {
-		return this.http.get(this.base + this.url, {headers: headers}).toPromise();
+		return this.http.get(this.base + this.url).toPromise();
 	}
 
 	getByLimit(limit: number) {
-		return this.http.get(this.base + this.url + '/limit/' + limit, {headers: headers}).toPromise();
+		return this.http.get(this.base + this.url + '/limit/' + limit).toPromise();
 	}
 
 	get(id: string) {
-		return this.http.get(this.base + this.url + '/' + id, {headers: headers}).toPromise();
+		return this.http.get(this.base + this.url + '/' + id).toPromise();
 	}
 }

@@ -7,6 +7,10 @@
 @import "assets/css/slick.css";
 @import "assets/css/slick-theme.css";
 
+#toast-container {
+    right: 1% !important;
+}
+
 div.toast {
-    width:400px !important;
+    width: 400px !important;
 }

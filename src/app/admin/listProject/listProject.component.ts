@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
 import { ToastrService } from 'ngx-toastr';
+import * as _ from 'lodash';
 
 const options = {
 	progressBar: true
@@ -36,6 +37,7 @@ export class ListProjectComponent implements OnInit {
 	 */
 	deleteProjet(project: Project): void {
 		this.projectService.delete(project.id).then(() => {
+			this.projects = _.without(this.projects, project);
 			this.toast.success("Projet supprimer avec succes.", null, options);
 		}).catch((err) => {
 			this.toast.success("Impossible de supprimer ce projet.", null, options);
