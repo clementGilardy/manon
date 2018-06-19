@@ -1,45 +1,21 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProjectService } from "common/services/project.service";
 import { Project } from "app/admin/project";
-import { animate, state, style, transition, trigger } from "@angular/animations";
 
 declare var $: any;
 
 @Component({
 	           selector   : 'app-project',
 	           templateUrl: 'project.component.html',
-	           styleUrls  : ['project.component.scss'],
-	           animations : [
-		           trigger('enterOpacity', [
-			           state('true', style({opacity: '0.3'})),
-			           state('false', style({opacity: '1'})),
-			           transition('false <=> true', animate(500))
-		           ]),
-		           trigger('enterDisplay', [
-			           state('true', style({opacity: '1'})),
-			           state('false', style({opacity: '0'})),
-			           transition('false <=> true', animate(500))
-		           ])
-	           ]
+	           styleUrls  : ['project.component.scss']
            })
 export class ProjectComponent implements OnInit {
 	public projects: Array<Project>;
-	@ViewChild('caption') caption: ElementRef;
-	@ViewChild('image') image: ElementRef;
-	public enter: boolean;
+	public time: number;
 
 	constructor(private projectService: ProjectService) {
-		this.enter = false;
-	}
-
-	display() {
-		this.enter                                  = true;
-		this.caption.nativeElement.style['display'] = 'block';
-	}
-
-	hide() {
-		this.caption.nativeElement.style['display'] = 'none';
-		this.enter                                  = false;
+		this.projects = new Array<Project>();
+		this.time     = 500;
 	}
 
 	ngOnInit() {
@@ -48,5 +24,16 @@ export class ProjectComponent implements OnInit {
 		}).catch((err) => {
 			console.log(err);
 		});
+	}
+
+	display(id: string) {
+		$('#' + id + ' img').fadeTo(0, 1).fadeTo(this.time, 0.3);
+		$('#' + id + ' .project-caption').fadeIn(this.time);
+	}
+
+
+	hide(id: string) {
+		$('#' + id + ' img').fadeTo(0, 0.3).fadeTo(this.time, 1);
+		$('#' + id + ' .project-caption').fadeOut(this.time);
 	}
 }

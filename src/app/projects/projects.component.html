@@ -4,17 +4,20 @@
 		<div class="intro">
 			<h1>Projets</h1>
 		</div>
-		<div class="all-project">
 			<div class="all-projects">
-				<div *ngFor="let projet of projects" class="project">
-					<a routerLink="/projects/{{projet._id}}">
-						<img height="300px"
+				<div *ngFor="let projet of projects" class="project-accueil">
+					<div routerLink="/projects/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)" (mouseleave)="hide(projet._id)" class="one-project">
+						<div class="project-caption">
+							<h2>{{projet.titre}}</h2>
+							<h3>{{projet.categorie}}</h3>
+						</div>
+						<img class="vignette"
+						     width="400px"
 						     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
-						     alt="">
-					</a>
+						     alt="image">
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 </div>
 <app-footer></app-footer>

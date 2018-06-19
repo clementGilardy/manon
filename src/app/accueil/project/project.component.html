@@ -3,19 +3,17 @@
 		<h1>Mes Projets</h1>
 	</div>
 	<div class="projectContainer">
-		<div class="projects">
-			<a *ngFor="let projet of projects" class="link-img" routerLink="/projects/{{projet._id}}">
-				<div (mouseover)="display()" (mouseleave)="hide()" class="project-accueil">
-					<div [@enterDisplay]="enter"  #caption class="project-caption">
-						<h2>{{projet.titre}}</h2>
-						<h3>{{projet.categorie}}</h3>
-
-					</div>
-					<img [@enterOpacity]="enter" #image class="vignette" height="300px"
-					     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
-					     alt="image">
+		<div *ngFor="let projet of projects" class="project-accueil">
+			<div routerLink="/projects/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)" (mouseleave)="hide(projet._id)" class="one-project">
+				<div class="project-caption">
+					<h2>{{projet.titre}}</h2>
+					<h3>{{projet.categorie}}</h3>
 				</div>
-			</a>
+				<img class="vignette"
+				     width="400px"
+				     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+				     alt="image">
+			</div>
 		</div>
 	</div>
 	<div class="lienProject">
