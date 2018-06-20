@@ -17,7 +17,7 @@ function find(docName, filter) {
 		.then((dbConnection) => {
 			currentDbConnection = dbConnection;
 			const defferedForDb = Q.defer();
-			dbConnection.db('manon').collection(docName).find(filter).toArray(function (err, result) {
+			dbConnection.db('manon').collection(docName).find(filter).sort({createAt: -1}).toArray(function (err, result) {
 				if (err) {
 					defferedForDb.reject(err);
 				}
@@ -50,6 +50,7 @@ function findLimit(docName, filter, limit) {
 			const defferedForDb = Q.defer();
 			dbConnection.db('manon').collection(docName)
 				.find(filter)
+				.sort({createAt: -1})
 				.limit(+limit)
 				.toArray(function (err, result) {
 					if (err) {
@@ -144,8 +145,8 @@ function getMongoDB() {
 }
 
 function connectMongoDB(callback) {
-	MongoClient.connect('mongodb://hawklm:Vetbopen_36@ds159459.mlab.com:59459/manon', function (err, dbb) {
-	// MongoClient.connect('mongodb://localhost:27017/manon', function (err, dbb) {
+	// MongoClient.connect('mongodb://hawklm:Vetbopen_36@ds159459.mlab.com:59459/manon', function (err, dbb) {
+		MongoClient.connect('mongodb://localhost:27017/manon', function (err, dbb) {
 		if (err) return console.log(err);
 		callback(err, dbb);
 	});

@@ -3,19 +3,21 @@ const router     = express.Router();
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-	service: 'gmail',
+	host: 'mail.gandi.net',
+	port: 465,
+	secure: true,
 	auth: {
-		user: 'gilardy.clement@gmail.com',
-		pass: 'vetbopen36'
+		user: 'contact@manon-delage.fr',
+		pass: 'Vetbopen_369'
 	}
 });
 
 router.post('/mail', (req, res) => {
 	const contact     = req.body;
 	const mailOptions = {
-		from: contact.email,
-		to: 'gilardy.clement@gmail.com',
-		subject: 'Formulaire de contact ' + contact.prenom + ' ' + contact.nom,
+		from: 'contact@manon-delage.fr',
+		to: 'manon.delage@orange.fr',
+		subject: contact.email + contact.prenom + ' ' + contact.nom,
 		text: contact.message
 	};
 	transporter.sendMail(mailOptions, function (error) {

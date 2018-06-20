@@ -28,6 +28,7 @@ router.post('/projects', (req, res) => {
 		titre: projet.titre,
 		categorie: projet.categorie,
 		description: projet.description,
+		createAt: projet.createAt,
 		miniature: null,
 		images: []
 	};

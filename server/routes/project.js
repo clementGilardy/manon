@@ -17,7 +17,7 @@ router.get('/projects', (req, res) => {
 
 
 router.get('/projects/limit/:limit', (req, res) => {
-	database.findLimit(constants.MONGO_TABLE.PROJECTS, {}, req.params.limit).then((result, err) => {
+	database.findLimit(constants.MONGO_TABLE.PROJECTS,{}, req.params.limit).then((result, err) => {
 		if (err) {
 			res.sendStatus(500);
 		} else {
