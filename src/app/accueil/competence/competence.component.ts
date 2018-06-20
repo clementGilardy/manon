@@ -12,6 +12,6 @@ export class CompetenceComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		$('#competence-mobile .three-comptence').slick();
+		$('#competence-mobile .three-comptence').slick({dots:true});
 	}
 }

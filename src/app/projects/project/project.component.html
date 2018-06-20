@@ -9,11 +9,6 @@
 				<h2>{{ project.categorie }}</h2>
 				<p>{{ project.description }}</p>
 			</div>
-			<div class="navigation">
-				<div class="retour">
-					<a routerLink="/portfolio">RETOUR</a>
-				</div>
-			</div>
 		</div>
 		<div class="imageProjet">
 			<img *ngFor="let image of project.images" src="/uploads/{{image.name}}.{{image.extension}}" alt="image">
