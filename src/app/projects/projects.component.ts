@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit {
 
 	constructor(private projectService: ProjectService) {
 		this.projects = new Array<Project>();
-		this.time = 500;
+		this.time     = 500;
 	}
 
 	ngOnInit() {
@@ -25,13 +25,17 @@ export class ProjectsComponent implements OnInit {
 	}
 
 	display(id: string) {
-		$('#' + id + ' img').fadeTo(0, 1).fadeTo(this.time,0.3);
-		$('#' + id + ' .project-caption').fadeIn(this.time);
+		if (window.screen.width > 360) {
+			$('#' + id + ' img').fadeTo(0, 1).fadeTo(this.time, 0.3);
+			$('#' + id + ' .project-caption').fadeIn(this.time);
+		}
 	}
 
 
 	hide(id: string) {
-		$('#' + id + ' img').fadeTo(0, 0.3).fadeTo(this.time,1);
-		$('#' + id + ' .project-caption').fadeOut(this.time);
+		if (window.screen.width > 360) {
+			$('#' + id + ' img').fadeTo(0, 0.3).fadeTo(this.time, 1);
+			$('#' + id + ' .project-caption').fadeOut(this.time);
+		}
 	}
 }
