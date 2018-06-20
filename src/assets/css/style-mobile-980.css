@@ -1,10 +1,11 @@
 @media (max-width: 980px) {
     nav#nav-princ {
+        width:100%;
         position: fixed;
         box-shadow: none;
         -webkit-box-shadow: none;
         padding-top: 10px;
-        padding-left: 40px;
+        padding-left: 20px;
         padding-right: 40px;
         z-index: 1000;
         height: 80px;
@@ -32,6 +33,7 @@
         color: #387977;
         border-bottom: 2px solid #c59d58;
     }
+
 
     nav ul li a:before {
         content: "";
@@ -107,6 +109,7 @@
 
     #competence-mobile {
         display: block;
+        width: 100%;
     }
 
     #competence, #competence-mobile {
@@ -200,30 +203,33 @@
     }
 
     .text-apropos {
-        width: 800px;
+        width: 100%;
     }
 
     .text-apropos h2 {
+        text-align: center;
         color: #2e3231;
     }
 
     .text-apropos h3 {
+        text-align: center;
         color: #384c41;
         font-size: 30px;
     }
 
     .text-apropos p {
+        text-align: center;
         font-size: 25px;
     }
 
     #project {
+        width:100%;
         display: flex;
         flex-direction: column;
         text-align: center;
         align-items: center;
         padding-top: 30px;
         margin-bottom: 50px;
-        margin: auto;
     }
 
     #project a.link-img:nth-child(n+4) {
@@ -320,7 +326,6 @@
 
     #contact-mobile .input-field {
         width: 100%
-
     }
 
     #nom, #prenom, #email, #message {
@@ -350,7 +355,7 @@
     }
 
     #nav-mobile {
-        margin-left: 100px;
+        /*margin-left: 100px;*/
     }
 
 }
