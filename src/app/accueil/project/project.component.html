@@ -1,10 +1,10 @@
 <div id="project">
 	<div class="titre">
-		<h1>Mes Projets</h1>
+		<h1>Portfolio</h1>
 	</div>
 	<div class="projectContainer">
 		<div *ngFor="let projet of projects" class="project-accueil">
-			<div routerLink="/projects/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)" (mouseleave)="hide(projet._id)" class="one-project">
+			<div routerLink="/portfolio/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)" (mouseleave)="hide(projet._id)" class="one-project">
 				<div class="project-caption">
 					<h2>{{projet.titre}}</h2>
 					<h3>{{projet.categorie}}</h3>
@@ -17,7 +17,7 @@
 		</div>
 	</div>
 	<div class="lienProject">
-		<a routerLink="projects">Découvrez tous mes projets</a>
+		<a routerLink="/portfolio">Découvrez tous mes projets</a>
 		<img height="15px" src="../../../assets/img/arrowright.png" alt="fleche de droite">
 	</div>
 </div>

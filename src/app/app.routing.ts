@@ -4,7 +4,7 @@ import { PageNotFoundComponent } from "common/components/pageNotFound/pageNotFou
 
 const appRoutes: Routes = [
 	{path: '', loadChildren: 'app/accueil/accueil.module#AccueilModule'},
-	{path: 'projects', loadChildren: 'app/projects/projects.module#ProjectsModule'},
+	{path: 'portfolio', loadChildren: 'app/projects/projects.module#ProjectsModule'},
 	{path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule'},
 	{path: '**', component: PageNotFoundComponent}
 ];
