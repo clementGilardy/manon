@@ -41,55 +41,49 @@ router.delete('/projects/:id', async (req, res) => {
 	}
 });
 
-router.post('/projects', (req, res) => {
+router.post('/projects', async (req, res) => {
 	const projet          = req.body;
-	const minBuffer       = projet.miniature.img !== null ? Buffer.from(projet.miniature.img, constants.ENCODAGE) : null;
+	const minBuffer       = Buffer.from(projet.miniature.img, constants.ENCODAGE);
 	let imageBuffer       = null;
 	const projectToInsert = {
 		titre: projet.titre,
 		categorie: projet.categorie,
 		description: projet.description,
 		createAt: projet.createAt,
-		miniature: null,
+		miniature: {
+			name: projet.miniature.name,
+			extension: projet.miniature.extension,
+			description: projet.miniature.description
+		},
 		images: []
 	};
 	
-	const start = async () => {
-		await utils.asyncForEach(projet.images, async (image) => {
-			imageBuffer = Buffer.from(image.img, constants.ENCODAGE);
-			fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension), imageBuffer, (err) => {
-				if (err) {
-					console.log(err);
-				}
-				else {
-					console.log('insertion des images');
-				}
-			});
-			projectToInsert.images.push({name: image.name, extension: image.extension, description: image.description});
-		});
-		await fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, projet.miniature.name + constants.DOT + projet.miniature.extension), minBuffer, (err) => {
+	await utils.asyncForEach(projet.images, async (image) => {
+		imageBuffer = Buffer.from(image.img, constants.ENCODAGE);
+		fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension), imageBuffer, (err) => {
 			if (err) {
 				console.log(err);
 			}
-			projectToInsert.miniature = {
-				name: projet.miniature.name,
-				extension: projet.miniature.extension,
-				description: projet.miniature.description
-			};
-		});
-	};
-	start().then(() => {
-		database.save(constants.MONGO_TABLE.PROJECTS, projectToInsert).then((result, err) => {
-			if (err) {
-				res.sendStatus(500);
-			}
 			else {
-				console.log('insertion du projet en base');
-				res.send({add: true, project: result});
+				console.log('insertion des images');
 			}
 		});
-	}).catch((err) => {
-		console.log(err);
+		projectToInsert.images.push({name: image.name, extension: image.extension, description: image.description});
+	});
+	fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, projet.miniature.name + constants.DOT + projet.miniature.extension), minBuffer, (err) => {
+		if (err) {
+			console.log(err);
+		}
+	});
+	
+	database.save(constants.MONGO_TABLE.PROJECTS, projectToInsert).then((result, err) => {
+		if (err) {
+			res.sendStatus(500);
+		}
+		else {
+			console.log('insertion du projet en base');
+			res.send({add: true, project: result});
+		}
 	});
 });
 
