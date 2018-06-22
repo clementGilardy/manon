@@ -22,14 +22,20 @@ export class AddProjectComponent {
 	/**
 	 * Ajoute le projet
 	 */
-	addProject():void {
-		this.projectService
-		    .saveProject(this.project)
-		    .subscribe((res: any) => {
-			    this.project.id = res.project._id;
-			    this.toast.success('Projet ajouté avec success.', null, options);
-		    }, () => {
-			    this.toast.error("Impossible d'ajouter le projet.", null, options);
-		    });
+	addProject(): void {
+		if (this.project.checkError()) {
+			this.project.errors.forEach((error) => {
+				this.toast.error(error, null, options);
+			});
+		} else {
+			this.projectService
+			    .saveProject(this.project)
+			    .subscribe((res: any) => {
+				    this.project.id = res.project._id;
+				    this.toast.success('Projet ajouté avec success.', null, options);
+			    }, () => {
+				    this.toast.error("Impossible d'ajouter le projet.", null, options);
+			    });
+		}
 	}
 }

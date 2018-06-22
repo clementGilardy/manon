@@ -9,20 +9,17 @@ router.get('/projects', (req, res) => {
 		if (err) {
 			res.sendStatus(500);
 		}
-		else {
-			res.send(result);
-		}
+		res.send(result);
 	});
 });
 
 
 router.get('/projects/limit/:limit', (req, res) => {
-	database.findLimit(constants.MONGO_TABLE.PROJECTS,{}, req.params.limit).then((result, err) => {
+	database.findLimit(constants.MONGO_TABLE.PROJECTS, {}, req.params.limit).then((result, err) => {
 		if (err) {
 			res.sendStatus(500);
-		} else {
-			res.send(result);
 		}
+		res.send(result);
 	});
 });
 
@@ -32,9 +29,7 @@ router.get('/projects/:id', (req, res) => {
 		if (err) {
 			res.sendStatus(500);
 		}
-		else {
-			res.send(result[0]);
-		}
+		res.send(result[0]);
 	});
 });
 

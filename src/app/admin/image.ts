@@ -15,6 +15,10 @@ export class Image {
 		this.createAt    = new Date();
 	}
 
+	isNotEmpty() {
+		return (this.img !== null);
+	}
+
 	/**
 	 * Convertie une image en binaire pour pouvoir la passer au back
 	 * @param event

@@ -37,6 +37,7 @@ export class ListProjectComponent implements OnInit {
 	 */
 	deleteProjet(project: Project): void {
 		this.projectService.delete(project.id).then(() => {
+			console.log('delete projet');
 			this.projects = _.without(this.projects, project);
 			this.toast.success("Projet supprimer avec succes.", null, options);
 		}).catch((err) => {
