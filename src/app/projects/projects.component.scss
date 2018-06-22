@@ -13,6 +13,7 @@ header {
 .all-projects {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
 
 .project-accueil {
@@ -22,7 +23,7 @@ header {
 }
 
 .projects {
-	width: 70%;
+	width: 95%;
 }
 
 .project-caption {
@@ -64,8 +65,20 @@ h3 {
 	letter-spacing: 1px;
 }
 
+@media (max-width: 1370px) {
+	img {
+		width: 400px;
+	}
+}
+
+@media (max-width: 1369px) and (min-width: 981px) {
+	img {
+		width: 300px;
+	}
+}
+
 @media (max-width: 980px) {
-	.one-project img {
+	img {
 		width: 200px;
 	}
 

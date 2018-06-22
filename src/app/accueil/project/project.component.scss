@@ -29,16 +29,27 @@ h3 {
 	letter-spacing: 1px;
 }
 
+img {
+	cursor: pointer;
+}
+
+@media (max-width: 1370px) {
+	img {
+		width: 400px;
+	}
+}
+
+@media (max-width: 1369px) and (min-width: 981px) {
+	img {
+		width: 300px;
+	}
+}
+
 @media (min-width: 1601px) {
 	.projectContainer {
 		display: flex;
 		align-items: center;
 	}
-
-	.one-project img {
-		cursor: pointer;
-	}
-
 }
 
 @media (max-width: 980px) {
@@ -47,7 +58,7 @@ h3 {
 		flex-direction: column;
 	}
 
-	.one-project img {
+	img {
 		cursor: pointer;
 		width: 200px;
 	}
