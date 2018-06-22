@@ -13,6 +13,7 @@ export class Project {
 	public createAt: Date;
 	public displayDate: string;
 	public errors: Array<string>;
+	public order: number;
 
 	constructor() {
 		this.images    = new Array<Image>();
@@ -36,6 +37,7 @@ export class Project {
 		this.miniature   = projet.miniature ? new Image().init(projet.miniature) : new Image();
 		this.images      = projet.images ? this.initImage(projet.images) : new Array<Image>();
 		this.createAt    = projet.createAt;
+		this.order       = projet.order;
 		this.displayDate = moment(this.createAt).format('DD/MM/YYYY h:m:s');
 
 		return this;
@@ -91,7 +93,6 @@ export class Project {
 
 		return (numberError >= 1);
 	}
-
 
 	/**
 	 * Supprime une image du projet

@@ -13,6 +13,7 @@ import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from "app/admin/categories/categories.component";
 import { UpdateProjectComponent } from "app/admin/update-project/update-project.component";
+import { DragulaModule } from "ng2-dragula";
 
 @NgModule({
 	          imports     : [
@@ -21,7 +22,8 @@ import { UpdateProjectComponent } from "app/admin/update-project/update-project.
 		          FormsModule,
 		          ReactiveFormsModule,
 		          HttpClientModule,
-		          AdminRouting
+		          AdminRouting,
+		          DragulaModule
 	          ],
 	          declarations: [
 		          AdministrationComponent,

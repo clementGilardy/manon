@@ -1,4 +1,5 @@
 <table *ngIf="projects.length > 0">
+	<thead>
 	<tr>
 		<th>Miniature</th>
 		<th>Titre</th>
@@ -6,6 +7,8 @@
 		<th>Date de création</th>
 		<th>Action</th>
 	</tr>
+	</thead>
+	<tbody [dragula]="'draggable'" [dragulaModel]="projects">
 	<tr *ngFor="let projet of projects">
 		<td><img width="150px"
 		         src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
@@ -18,6 +21,7 @@
 			<button routerLink="/admin/update/{{projet.id}}" class="btn">Modifier</button>
 		</td>
 	</tr>
+	</tbody>
 </table>
 <span *ngIf="projects.length === 0">Aucun projet</span>
 <button class="btn" routerLink="/admin/add">Ajouter un projet</button>

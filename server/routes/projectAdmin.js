@@ -58,20 +58,34 @@ router.put('/projects', async (req, res) => {
 			console.log(err);
 			res.sendStatus(500);
 		}
-		console.log(result);
 		res.send({update: true});
 	})
 });
 
-router.post('/projects', (req, res) => {
+router.put('/projects/order', async (req, res) => {
+	const projectOrder = req.body;
+	projectOrder.forEach((project) => {
+		database.update(constants.MONGO_TABLE.PROJECTS, project).then((result, err) => {
+			if (err) {
+				console.log(err);
+				res.sendStatus(500);
+			}
+			res.send({update: true});
+		});
+	});
+});
+
+router.post('/projects', async (req, res) => {
 	const projet          = req.body;
 	const minBuffer       = Buffer.from(projet.miniature.img, constants.ENCODAGE);
+	const projectMaxOrder = await database.findOne(constants.MONGO_TABLE.PROJECTS, {});
 	let imageBuffer       = null;
 	const projectToInsert = {
 		titre: projet.titre,
 		categorie: projet.categorie,
 		description: projet.description,
 		createAt: projet.createAt,
+		order: projectMaxOrder ? (+projectMaxOrder.order + 1) : 1,
 		miniature: {
 			name: projet.miniature.name,
 			extension: projet.miniature.extension,

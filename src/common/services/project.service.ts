@@ -28,6 +28,12 @@ export class ProjectService extends DatabaseService {
 		return this.http.put(this.base + u, project, {headers: headers});
 	}
 
+	updateOrderProject(projects:Array<Project>) {
+		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
+		const u       = '/api/admin/projects/order';
+		return this.http.put(this.base + u, projects, {headers: headers});
+	}
+
 	delete(id: string) {
 		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
 		const u       = '/api/admin/projects';
