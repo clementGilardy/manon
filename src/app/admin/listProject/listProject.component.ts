@@ -3,6 +3,7 @@ import { Project } from "app/admin/project";
 import { ProjectService } from "common/services/project.service";
 import { ToastrService } from 'ngx-toastr';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 const options = {
 	progressBar: true

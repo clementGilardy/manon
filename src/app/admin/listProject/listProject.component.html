@@ -1,13 +1,22 @@
 <table *ngIf="projects.length > 0">
 	<tr>
+		<th>Miniature</th>
 		<th>Titre</th>
 		<th>Categorie</th>
+		<th>Date de création</th>
 		<th>Action</th>
 	</tr>
 	<tr *ngFor="let projet of projects">
+		<td><img width="150px"
+		         src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+		         alt="miniature"></td>
 		<td>{{projet.titre}}</td>
 		<td>{{projet.categorie}}</td>
-		<td><button (click)="deleteProjet(projet)" class="btn">Supprimer</button></td>
+		<td>{{projet.displayDate}}</td>
+		<td>
+			<button (click)="deleteProjet(projet)" class="btn">Supprimer</button>
+			<button routerLink="/admin/update/{{projet.id}}" class="btn">Modifier</button>
+		</td>
 	</tr>
 </table>
 <span *ngIf="projects.length === 0">Aucun projet</span>

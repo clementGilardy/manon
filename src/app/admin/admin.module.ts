@@ -12,6 +12,7 @@ import { AuthGuard } from "app/admin/AuthGuard";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from "app/admin/categories/categories.component";
+import { UpdateProjectComponent } from "app/admin/update-project/update-project.component";
 
 @NgModule({
 	          imports     : [
@@ -27,7 +28,8 @@ import { CategoriesComponent } from "app/admin/categories/categories.component";
 		          AddProjectComponent,
 		          ListProjectComponent,
 		          LoginComponent,
-		          CategoriesComponent
+		          CategoriesComponent,
+		          UpdateProjectComponent
 	          ],
 	          providers   : [LocalStorageService, TokenService, AuthGuard]
           })

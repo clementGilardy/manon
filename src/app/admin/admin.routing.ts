@@ -4,11 +4,13 @@ import { AddProjectComponent } from "app/admin/addProject/addProject.component";
 import { ListProjectComponent } from "app/admin/listProject/listProject.component";
 import { AuthGuard } from "app/admin/AuthGuard";
 import { AdministrationComponent } from "app/admin/administration/administration.component";
+import { UpdateProjectComponent } from "app/admin/update-project/update-project.component";
 
 const adminRoutes: Routes = [
 	{path: '', component: AdministrationComponent},
 	{path: 'list', canActivate: [AuthGuard], component: ListProjectComponent},
 	{path: 'add', canActivate: [AuthGuard], component: AddProjectComponent},
+	{path: 'update/:id', canActivate: [AuthGuard], component: UpdateProjectComponent},
 ];
 
 @NgModule({

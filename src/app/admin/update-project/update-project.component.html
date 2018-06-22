@@ -1,0 +1,53 @@
+<div class="row">
+	<div class="input-field col s6">
+		<input id="titre" type="text" [(ngModel)]="project.titre" class="validate">
+	</div>
+	<div class="input-field col s6">
+		<input id="categorie" type="text" class="validate" [(ngModel)]="project.categorie">
+	</div>
+	<div class="input-field col s12">
+		<textarea id="textarea1" class="materialize-textarea" [(ngModel)]="project.description"></textarea>
+	</div>
+	<div class="col s12">
+		<div class="col s2">
+			<img *ngIf="project.miniature.extension && project.miniature.img === null" width="150px"
+			     src="/uploads/{{project.miniature.name}}.{{project.miniature.extension}}"
+			     alt="miniature actuelle">
+		</div>
+		<div class="file-field input-field col s10">
+			<div class="btn">
+				<span>Miniature</span>
+				<input type="file" (change)="project.miniature.handleFileInput($event)">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+	</div>
+	<div *ngFor="let image of project.images" class="col s12 center-align center-block center">
+		<div class="col s2">
+			<img *ngIf="image.extension && image.img === null" width="150px"
+			     src="/uploads/{{image.name}}.{{image.extension}}"
+			     alt="image actuelle">
+		</div>
+		<div class="file-field input-field col s9">
+			<div class="btn">
+				<span>Image</span>
+				<input type="file" (change)="image.handleFileInput($event)">
+			</div>
+			<div class="file-path-wrapper">
+				<input class="file-path validate" type="text">
+			</div>
+		</div>
+		<div class="col s1 pointer"><img src="../../../assets/svg/trash.svg" height="40px" alt="retirer une image"
+		                                 (click)="project.deleteImage(image)"></div>
+	</div>
+	<div class="col s12">
+		<button (click)="project.addImage()" class="btn">Ajouter une image</button>
+		<button (click)="updateProject()" class="btn">Mettre à jour le projet</button>
+	</div>
+</div>
+
+<br><br>
+<button routerLink="" fragment="home" class="btn">Retour au site</button>
+<button routerLink="/admin/list" class="btn">Liste des projets</button>

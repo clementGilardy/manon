@@ -1,6 +1,7 @@
 import { Image } from "app/admin/image";
 import * as _ from 'lodash';
 import { Utils } from "common/class/utils";
+import * as moment from 'moment';
 
 export class Project {
 	public id: string;
@@ -10,6 +11,7 @@ export class Project {
 	public miniature: Image;
 	public images: Array<Image>;
 	public createAt: Date;
+	public displayDate: string;
 	public errors: Array<string>;
 
 	constructor() {
@@ -31,10 +33,20 @@ export class Project {
 		this.titre       = projet.titre;
 		this.categorie   = projet.categorie;
 		this.description = projet.description;
-		this.miniature   = projet.miniature ? projet.miniature : new Image();
-		this.images      = projet.images ? projet.images : new Array();
+		this.miniature   = projet.miniature ? new Image().init(projet.miniature) : new Image();
+		this.images      = projet.images ? this.initImage(projet.images) : new Array<Image>();
 		this.createAt    = projet.createAt;
+		this.displayDate = moment(this.createAt).format('DD/MM/YYYY h:m:s');
+
 		return this;
+	}
+
+	initImage(images: Array<any>): Array<Image> {
+		const imgs = new Array<Image>();
+		images.forEach((image: any) => {
+			imgs.push(new Image().init(image));
+		});
+		return imgs;
 	}
 
 	/**

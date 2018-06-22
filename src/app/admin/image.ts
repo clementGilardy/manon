@@ -15,6 +15,14 @@ export class Image {
 		this.createAt    = new Date();
 	}
 
+	init(image: any) {
+		this.name        = image.name;
+		this.description = image.description;
+		this.extension   = image.extension;
+		this.img         = null;
+		return this;
+	}
+
 	isNotEmpty() {
 		return (this.img !== null);
 	}
