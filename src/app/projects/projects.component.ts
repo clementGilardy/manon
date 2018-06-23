@@ -43,7 +43,7 @@ export class ProjectsComponent implements OnInit {
 		cat.selected        = true;
 		this.displayProject = this.projects.filter((project) => {
 			if (cat.name !== 'TOUT') {
-				return _.find(project.categories, {name: cat.name});
+				return _.find(project.categories, {name: cat.name.toUpperCase()});
 			} else {
 				return true;
 			}

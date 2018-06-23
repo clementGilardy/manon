@@ -32,8 +32,8 @@ export class CategoriesComponent implements OnInit {
 
 	addCategorie() {
 		this.catService.saveCategorie(this.categorie).subscribe((res: any) => {
-			console.log(res);
 			this.toast.success("La categorie à été ajouté avec succes.", null, {progressBar: true});
+			this.categories.push(this.categorie);
 		}, (err: any) => {
 			this.toast.error("Impossible d'ajouter la categorie.", null, {progressBar: true});
 		});

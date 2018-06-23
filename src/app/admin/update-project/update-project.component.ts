@@ -73,7 +73,6 @@ export class UpdateProjectComponent implements OnInit {
 	updateProject() {
 		this.projectService.updateProject(this.project).subscribe((result) => {
 			this.toastr.success('Projet mis à jour avec succes', null, {progressBar: true});
-			console.log(result);
 		}, (err) => {
 			console.log(err);
 			this.toastr.error('Impossible de mettre à jour le projet', null, {progressBar: true});
