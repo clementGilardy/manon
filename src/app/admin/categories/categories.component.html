@@ -1,3 +1,13 @@
-<p>
-  categories works!
-</p>
+<form [formGroup]="form" class="row">
+	<div class="input-field col s12">
+		<input id="name" type="text" formControlName="name" [(ngModel)]="categorie.name" class="validate">
+		<label for="name">Categorie</label>
+	</div>
+	<button (click)="addCategorie()" class="btn">Ajouter une categorie</button>
+</form>
+
+<div>
+	<ul>
+		<li *ngFor="let categorie of categories">{{categorie.name}}</li>
+	</ul>
+</div>

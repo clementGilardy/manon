@@ -9,7 +9,8 @@ const constants = {
 	TOKEN: 'tokenSecretWhichIsSecret',
 	MONGO_TABLE: {
 		PROJECTS: 'projects',
-		USER: 'users'
+		USER: 'users',
+		CATEGORIES: 'categories'
 	}
 };
 

@@ -6,7 +6,7 @@
 				<h1>{{ project.titre }}</h1>
 			</div>
 			<div class="text-intro">
-				<h2>{{ project.categorie }}</h2>
+				<h2><span *ngFor="let  categorie of project.categories">{{ categorie.name }} </span></h2>
 				<p>{{ project.description }}</p>
 			</div>
 		</div>

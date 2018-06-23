@@ -5,6 +5,7 @@ const app          = express();
 const apiRoutes    = express.Router();
 const mail         = require('./routes/mail');
 const projectAdmin = require('./routes/projectAdmin');
+const categories   = require('./routes/categories');
 const project      = require('./routes/project');
 const users        = require('./routes/user');
 const jwt          = require('jsonwebtoken');
@@ -59,8 +60,8 @@ apiRoutes.use((req, res, next) => {
 });
 
 app.use(constants.API_PREFIX, apiRoutes);
-
 app.use(`${constants.API_PREFIX}/admin`, projectAdmin);
+app.use(`${constants.API_PREFIX}/admin`, categories);
 
 app.listen(8080, function () {
 	console.log('Example app listening on port 8080!')

@@ -6,6 +6,8 @@ import { NavprojectComponent } from "app/projects/nav-project/navproject.compone
 import { CommonModule } from "@angular/common";
 import { ProjectsRoutingModule } from "app/projects/projects.routing";
 import { HttpClientModule } from "@angular/common/http";
+import { CategorieService } from "common/services/categorie.service";
+import { ProjectService } from "common/services/project.service";
 
 @NgModule({
 	          imports     : [
@@ -18,7 +20,8 @@ import { HttpClientModule } from "@angular/common/http";
 		          ProjectsComponent,
 		          ProjectComponent,
 		          NavprojectComponent
-	          ]
+	          ],
+	          providers   : [CategorieService, ProjectService]
           })
 export class ProjectsModule {
 }

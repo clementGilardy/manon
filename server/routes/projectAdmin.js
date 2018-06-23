@@ -38,12 +38,13 @@ router.delete('/projects/:id', async (req, res) => {
 
 router.put('/projects', async (req, res) => {
 	const updateProject = req.body;
+	const cats          = getCategoriesFromProject(updateProject.categories);
 	const request       = await queryGet(updateProject.id);
 	const oldProject    = request[0];
 	const newProject    = {
 		id: updateProject.id,
 		titre: updateProject.titre,
-		categorie: updateProject.categorie,
+		categories: cats,
 		description: updateProject.description,
 		miniature: null,
 		images: []
@@ -77,12 +78,13 @@ router.put('/projects/order', async (req, res) => {
 
 router.post('/projects', async (req, res) => {
 	const projet          = req.body;
+	const cats            = getCategoriesFromProject(projet.categories);
 	const minBuffer       = Buffer.from(projet.miniature.img, constants.ENCODAGE);
 	const projectMaxOrder = await database.findOne(constants.MONGO_TABLE.PROJECTS, {});
 	let imageBuffer       = null;
 	const projectToInsert = {
 		titre: projet.titre,
-		categorie: projet.categorie,
+		categories: cats,
 		description: projet.description,
 		createAt: projet.createAt,
 		order: projectMaxOrder ? (+projectMaxOrder.order + 1) : 1,
@@ -112,6 +114,14 @@ router.post('/projects', async (req, res) => {
 		}
 	});
 });
+
+function getCategoriesFromProject(categories) {
+	const cats = [];
+	categories.forEach((cat) => {
+		cats.push({name: cat.name});
+	});
+	return cats;
+}
 
 
 function deleteImage(image) {

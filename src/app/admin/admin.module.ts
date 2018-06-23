@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CategoriesComponent } from "app/admin/categories/categories.component";
 import { UpdateProjectComponent } from "app/admin/update-project/update-project.component";
 import { DragulaModule } from "ng2-dragula";
+import { CategorieService } from "common/services/categorie.service";
 
 @NgModule({
 	          imports     : [
@@ -33,7 +34,7 @@ import { DragulaModule } from "ng2-dragula";
 		          CategoriesComponent,
 		          UpdateProjectComponent
 	          ],
-	          providers   : [LocalStorageService, TokenService, AuthGuard]
+	          providers   : [LocalStorageService, TokenService, AuthGuard, CategorieService]
           })
 export class AdminModule {
 }

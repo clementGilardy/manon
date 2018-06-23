@@ -1,3 +1,27 @@
+.categories {
+	text-align: center;
+	margin: 20px;
+}
+
+.categorie {
+	font-family: RalewayRegular;
+	margin-left: 10px;
+	font-size: 18px;
+	display: inline;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
+.categorie.active {
+	color: #2e7571;
+	border-bottom: 2px solid #C59D59;
+}
+
+.categorie:hover {
+	color: #2e7571;
+	font-size: 20px;
+}
+
 header {
 	height: 80px;
 }
@@ -11,9 +35,10 @@ header {
 }
 
 .all-projects {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	width: 100%;
+	display: inline-block;
+	margin: auto;
+	text-align: center;
 }
 
 .project-accueil {
@@ -67,7 +92,7 @@ h3 {
 	letter-spacing: 1px;
 }
 
-@media (max-width: 1370px) {
+@media (min-width: 1370px) {
 	.one-project img {
 		width: 400px;
 	}

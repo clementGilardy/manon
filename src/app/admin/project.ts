@@ -2,11 +2,13 @@ import { Image } from "app/admin/image";
 import * as _ from 'lodash';
 import { Utils } from "common/class/utils";
 import * as moment from 'moment';
+import { Categorie } from "app/admin/categories/categorie";
+import { C } from "@angular/core/src/render3";
 
 export class Project {
 	public id: string;
 	public titre: string;
-	public categorie: string;
+	public categories: Array<Categorie>;
 	public description: string;
 	public miniature: Image;
 	public images: Array<Image>;
@@ -16,11 +18,12 @@ export class Project {
 	public order: number;
 
 	constructor() {
-		this.images    = new Array<Image>();
-		this.images    = [new Image()];
-		this.miniature = new Image();
-		this.createAt  = new Date();
-		this.errors    = new Array<string>();
+		this.images     = new Array<Image>();
+		this.images     = [new Image()];
+		this.miniature  = new Image();
+		this.createAt   = new Date();
+		this.errors     = new Array<string>();
+		this.categories = new Array<Categorie>();
 	}
 
 	/**
@@ -32,7 +35,7 @@ export class Project {
 	init(projet: Project): Project {
 		this.id          = projet.id || projet['_id'];
 		this.titre       = projet.titre;
-		this.categorie   = projet.categorie;
+		this.categories  = projet.categories ? this.initCategories(projet.categories) : new Array<Categorie>();
 		this.description = projet.description;
 		this.miniature   = projet.miniature ? new Image().init(projet.miniature) : new Image();
 		this.images      = projet.images ? this.initImage(projet.images) : new Array<Image>();
@@ -41,6 +44,14 @@ export class Project {
 		this.displayDate = moment(this.createAt).format('DD/MM/YYYY h:m:s');
 
 		return this;
+	}
+
+	initCategories(categories: any): Array<Categorie> {
+		const cats = new Array<Categorie>();
+		categories.forEach((categorie: any) => {
+			cats.push(new Categorie().init(categorie));
+		});
+		return cats;
 	}
 
 	initImage(images: Array<any>): Array<Image> {
@@ -69,7 +80,7 @@ export class Project {
 			numberError++;
 		}
 
-		if (Utils.stringIsEmpty(this.categorie)) {
+		if (Utils.isEmpty(this.categories)) {
 			this.errors.push('Les catégories doivent être renseignées');
 			numberError++;
 		}

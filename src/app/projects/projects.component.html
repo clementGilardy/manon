@@ -4,19 +4,26 @@
 		<div class="intro">
 			<h1>Portfolio</h1>
 		</div>
-			<div class="all-projects">
-				<div *ngFor="let projet of projects" class="project-accueil">
-					<div routerLink="/portfolio/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)" (mouseleave)="hide(projet._id)" class="one-project">
-						<div class="project-caption">
-							<h2>{{projet.titre}}</h2>
-							<h3>{{projet.categorie}}</h3>
-						</div>
-						<img class="vignette"
-						     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
-						     alt="image">
+
+		<div class="categories">
+			<div class="categorie active" *ngFor="let cat of categories" [ngClass]="{'active':cat.selected}" (click)="filter(cat)">
+				{{cat.name}}
+			</div>
+		</div>
+		<div class="all-projects">
+			<div *ngFor="let projet of displayProject" class="project-accueil">
+				<div routerLink="/portfolio/{{projet._id}}" id="{{projet._id}}" (mouseenter)="display(projet._id)"
+				     (mouseleave)="hide(projet._id)" class="one-project">
+					<div class="project-caption">
+						<h2>{{projet.titre}}</h2>
+						<h3><span *ngFor="let categorie of projet.categories">{{categorie.name}} </span></h3>
 					</div>
+					<img class="vignette"
+					     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+					     alt="image">
 				</div>
 			</div>
+		</div>
 	</div>
 </div>
 <app-footer></app-footer>

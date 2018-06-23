@@ -8,7 +8,7 @@
 			     (mouseleave)="hide(projet._id)" class="one-project">
 				<div class="project-caption">
 					<h2>{{projet.titre}}</h2>
-					<h3>{{projet.categorie}}</h3>
+					<h3><span *ngFor="let categorie of projet.categories">{{categorie.name}} </span></h3>
 				</div>
 				<img class="vignette"
 				     src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"

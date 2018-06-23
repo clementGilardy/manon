@@ -5,11 +5,13 @@ import { ListProjectComponent } from "app/admin/listProject/listProject.componen
 import { AuthGuard } from "app/admin/AuthGuard";
 import { AdministrationComponent } from "app/admin/administration/administration.component";
 import { UpdateProjectComponent } from "app/admin/update-project/update-project.component";
+import { CategoriesComponent } from "app/admin/categories/categories.component";
 
 const adminRoutes: Routes = [
 	{path: '', component: AdministrationComponent},
 	{path: 'list', canActivate: [AuthGuard], component: ListProjectComponent},
 	{path: 'add', canActivate: [AuthGuard], component: AddProjectComponent},
+	{path: 'categories', canActivate: [AuthGuard], component: CategoriesComponent},
 	{path: 'update/:id', canActivate: [AuthGuard], component: UpdateProjectComponent},
 ];
 

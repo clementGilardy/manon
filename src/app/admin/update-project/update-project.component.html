@@ -1,9 +1,13 @@
 <div class="row">
-	<div class="input-field col s6">
-		<input id="titre" type="text" [(ngModel)]="project.titre" class="validate">
+	<div class="col s12">
+		<div *ngFor="let cat of categories" (click)="addOrRemoveCat(cat)" id="{{cat.name}}"
+		     [ngClass]="{'active':cat.selected}" class="chip active">
+			{{cat.name}}
+		</div>
+
 	</div>
-	<div class="input-field col s6">
-		<input id="categorie" type="text" class="validate" [(ngModel)]="project.categorie">
+	<div class="input-field col s12">
+		<input id="titre" type="text" [(ngModel)]="project.titre" class="validate">
 	</div>
 	<div class="input-field col s12">
 		<textarea id="textarea1" class="materialize-textarea" [(ngModel)]="project.description"></textarea>

@@ -14,7 +14,7 @@
 		         src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
 		         alt="miniature"></td>
 		<td>{{projet.titre}}</td>
-		<td>{{projet.categorie}}</td>
+		<td><span *ngFor="let cat of projet.categories">{{cat.name}} </span></td>
 		<td>{{projet.displayDate}}</td>
 		<td>
 			<button (click)="deleteProjet(projet)" class="btn">Supprimer</button>
