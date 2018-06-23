@@ -1,15 +1,16 @@
-const express      = require('express');
-const constants    = require('./constant/constants');
-const bodyParser   = require('body-parser');
-const app          = express();
-const apiRoutes    = express.Router();
-const mail         = require('./routes/mail');
-const projectAdmin = require('./routes/projectAdmin');
-const categories   = require('./routes/categories');
-const project      = require('./routes/project');
-const users        = require('./routes/user');
-const jwt          = require('jsonwebtoken');
-const path         = require('path');
+const express         = require('express');
+const constants       = require('./constant/constants');
+const bodyParser      = require('body-parser');
+const app             = express();
+const apiRoutes       = express.Router();
+const mail            = require('./routes/mail');
+const projectAdmin    = require('./routes/projectAdmin');
+const categoriesAdmin = require('./routes/categoriesAdmin');
+const categories      = require('./routes/categories');
+const project         = require('./routes/project');
+const users           = require('./routes/user');
+const jwt             = require('jsonwebtoken');
+const path            = require('path');
 
 
 app.use(bodyParser.json({limit: '50mb'}));
@@ -41,6 +42,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(constants.API_PREFIX, mail);
 app.use(constants.API_PREFIX, users);
 app.use(constants.API_PREFIX, project);
+app.use(constants.API_PREFIX, categories);
 
 apiRoutes.use((req, res, next) => {
 	const token = req.body.token || req.query.token || req.headers['x-access-token'] || req.headers['x-api-key'];
@@ -61,7 +63,7 @@ apiRoutes.use((req, res, next) => {
 
 app.use(constants.API_PREFIX, apiRoutes);
 app.use(`${constants.API_PREFIX}/admin`, projectAdmin);
-app.use(`${constants.API_PREFIX}/admin`, categories);
+app.use(`${constants.API_PREFIX}/admin`, categoriesAdmin);
 
 app.listen(8080, function () {
 	console.log('Example app listening on port 8080!')

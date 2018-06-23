@@ -13,14 +13,8 @@ export class CategorieService extends DatabaseService {
 
 	constructor(protected http: HttpClient) {
 		super(http);
-		this.url          = '/api/admin/categories';
+		this.url          = '/api/categories';
 		this.localStorage = new LocalStorageService();
-	}
-
-	getAll() {
-		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
-		const u       = '/api/admin/categories';
-		return this.http.get(this.base + u, {headers: headers}).toPromise();
 	}
 
 	saveCategorie(categorie: Categorie) {

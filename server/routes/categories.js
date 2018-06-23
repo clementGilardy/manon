@@ -13,17 +13,6 @@ router.get('/categories', (req, res) => {
 	});
 });
 
-router.post('/categories', (req, res) => {
-	const categorie = {name: req.body.name};
-	database.save(constants.MONGO_TABLE.CATEGORIES, categorie).then((result, err) => {
-		if (err) {
-			console.log(err);
-		}
-		
-		res.send(result);
-	});
-});
-
 router.get('/categories/:id', (req, res) => {
 	const id = req.params.id;
 	database.find(constants.MONGO_TABLE.CATEGORIES, {_id: ObjectId(id)}).then((result, err) => {
