@@ -257,7 +257,7 @@
     .lienProject {
         display: block;
         position: relative;
-        text-align: center;
+        text-align: right;
         width: 70%;
         margin: 20px 0 60px 0;
     }

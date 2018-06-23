@@ -28,6 +28,8 @@ header {
 
 .project-caption {
 	position: absolute;
+	width: 100%;
+	text-align: center;
 	left: 10px;
 	bottom: 0;
 	padding: 5%;
@@ -66,19 +68,19 @@ h3 {
 }
 
 @media (max-width: 1370px) {
-	img {
+	.one-project img {
 		width: 400px;
 	}
 }
 
 @media (max-width: 1369px) and (min-width: 981px) {
-	img {
+	.one-project img {
 		width: 300px;
 	}
 }
 
 @media (max-width: 980px) {
-	img {
+	.one-project img {
 		width: 200px;
 	}
 
