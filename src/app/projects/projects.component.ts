@@ -28,13 +28,13 @@ export class ProjectsComponent implements OnInit {
 
 	ngOnInit() {
 		this.projectService.getAll().then((result: Array<Project>) => {
-			this.projects = result;
+			this.projects       = result;
+			this.displayProject = this.projects;
 			return this.catService.getAll();
 		}).then((res: any) => {
 			res.forEach((cat) => {
 				this.categories.push(new Categorie().init(cat));
 			});
-			this.displayProject = this.projects;
 		});
 	}
 

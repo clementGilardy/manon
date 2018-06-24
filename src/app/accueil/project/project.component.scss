@@ -35,7 +35,7 @@ h3 {
 	cursor: pointer;
 }
 
-@media (max-width: 1370px) {
+@media (min-width: 1370px) {
 	.projectContainer img {
 		width: 400px;
 	}

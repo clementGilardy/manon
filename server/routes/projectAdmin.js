@@ -44,6 +44,7 @@ router.put('/projects', async (req, res) => {
 	const newProject    = {
 		id: updateProject.id,
 		titre: updateProject.titre,
+		order: oldProject.order,
 		categories: cats,
 		description: updateProject.description,
 		miniature: null,
