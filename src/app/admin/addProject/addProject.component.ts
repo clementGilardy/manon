@@ -6,8 +6,6 @@ import { Categorie } from "app/admin/categories/categorie";
 import { CategorieService } from "common/services/categorie.service";
 import * as _ from 'lodash';
 
-declare var $: any;
-
 const options = {
 	progressBar: true
 };
@@ -34,7 +32,11 @@ export class AddProjectComponent implements OnInit {
 		});
 	}
 
-	addOrRemoveCat(cat: Categorie) {
+	/**
+	 * Ajoute ou supprime une categorie
+	 * @param {Categorie} cat
+	 */
+	addOrRemoveCat(cat: Categorie): void {
 		if (!_.find(this.project.categories, {name: cat.name})) {
 			cat.selected = true;
 			this.project.categories.push(cat);
@@ -44,7 +46,12 @@ export class AddProjectComponent implements OnInit {
 		}
 	}
 
-	removeCat(cat) {
+	/**
+	 * Supprime une categorie
+	 * @param cat
+	 * @returns {Array<Categorie>}
+	 */
+	removeCat(cat): Array<Categorie> {
 		const cats = [];
 		this.project.categories.forEach((categorie: Categorie) => {
 			if (categorie.name !== cat.name) {
@@ -64,7 +71,7 @@ export class AddProjectComponent implements OnInit {
 			});
 		} else {
 			this.projectService
-			    .saveProject(this.project)
+			    .saveProject(this.project.toSerialize(['errors', 'displayDate']))
 			    .subscribe((res: any) => {
 				    this.project.id = res.project._id;
 				    this.toast.success('Projet ajouté avec success.', null, options);

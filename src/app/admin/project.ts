@@ -3,7 +3,6 @@ import * as _ from 'lodash';
 import { Utils } from "common/class/utils";
 import * as moment from 'moment';
 import { Categorie } from "app/admin/categories/categorie";
-import { C } from "@angular/core/src/render3";
 
 export class Project {
 	public id: string;
@@ -46,6 +45,27 @@ export class Project {
 		return this;
 	}
 
+	/**
+	 * On serialize les données
+	 * @param {Array<string>} arrayExcludeField
+	 * @returns {Object}
+	 */
+	toSerialize(arrayExcludeField: Array<string>): Object {
+		const project = {};
+		const test    = this;
+		for (const property in this) {
+			if (!_.includes(arrayExcludeField, property) && this.hasOwnProperty(property)) {
+				project[property.toString()] = test[property.toString()];
+			}
+		}
+		return project;
+	}
+
+	/**
+	 * Initialize le tableau de categorie
+	 * @param categories
+	 * @returns {Array<Categorie>}
+	 */
 	initCategories(categories: any): Array<Categorie> {
 		const cats = new Array<Categorie>();
 		categories.forEach((categorie: any) => {
@@ -54,6 +74,11 @@ export class Project {
 		return cats;
 	}
 
+	/**
+	 * Initialize le tableau d'image
+	 * @param {Array<any>} images
+	 * @returns {Array<Image>}
+	 */
 	initImage(images: Array<any>): Array<Image> {
 		const imgs = new Array<Image>();
 		images.forEach((image: any) => {

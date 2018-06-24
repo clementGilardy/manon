@@ -16,19 +16,19 @@ export class ProjectService extends DatabaseService {
 		this.localStorage = new LocalStorageService();
 	}
 
-	saveProject(project: Project) {
+	saveProject(project: Object) {
 		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
 		const u       = '/api/admin/projects';
 		return this.http.post(this.base + u, project, {headers: headers});
 	}
 
-	updateProject(project:Project){
+	updateProject(project:Object){
 		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
 		const u       = '/api/admin/projects';
 		return this.http.put(this.base + u, project, {headers: headers});
 	}
 
-	updateOrderProject(projects:Array<Project>) {
+	updateOrderProject(projects:Array<Object>) {
 		const headers = new HttpHeaders().set('x-api-key', this.localStorage.get('token'));
 		const u       = '/api/admin/projects/order';
 		return this.http.put(this.base + u, projects, {headers: headers});

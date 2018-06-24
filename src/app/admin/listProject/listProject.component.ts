@@ -18,7 +18,9 @@ const options = {
 export class ListProjectComponent implements OnInit {
 	public projects: Array<Project>;
 
-	constructor(private projectService: ProjectService, private toast: ToastrService, private dragService: DragulaService) {
+	constructor(private projectService: ProjectService,
+	            private toast: ToastrService,
+	            private dragService: DragulaService) {
 		this.projects = new Array<Project>();
 		this.dragService.drop.subscribe(() => {
 			for (let i = 0 ; i < this.projects.length ; i++) {
@@ -32,8 +34,10 @@ export class ListProjectComponent implements OnInit {
 		});
 	}
 
+	/**
+	 * Récupération de tous les projets et trie par rapport à leur ordre
+	 */
 	ngOnInit() {
-
 		this.projectService.getAll().then((result: any) => {
 			result.forEach((projet: Project) => {
 				this.projects.push(new Project().init(projet));

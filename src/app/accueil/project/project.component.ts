@@ -38,7 +38,6 @@ export class ProjectComponent implements OnInit {
 		}
 	}
 
-
 	hide(id: string) {
 		if (window.screen.width > 360) {
 			$('#' + id + ' img').fadeTo(0, 0.3).fadeTo(this.time, 1);

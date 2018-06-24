@@ -41,7 +41,7 @@ export class UpdateProjectComponent implements OnInit {
 		});
 	}
 
-	initCategories() {
+	initCategories(): void {
 		this.categories.forEach((cat: Categorie) => {
 			if (_.find(this.project.categories, {name: cat.name})) {
 				cat.selected = true;
@@ -49,7 +49,7 @@ export class UpdateProjectComponent implements OnInit {
 		});
 	}
 
-	addOrRemoveCat(cat: Categorie) {
+	addOrRemoveCat(cat: Categorie): void {
 		if (!_.find(this.project.categories, {name: cat.name})) {
 			this.project.categories.push(cat);
 			cat.selected = true;
@@ -71,7 +71,7 @@ export class UpdateProjectComponent implements OnInit {
 	}
 
 	updateProject() {
-		this.projectService.updateProject(this.project).subscribe((result) => {
+		this.projectService.updateProject(this.project.toSerialize(['errors', 'displayDate'])).subscribe((result) => {
 			this.toastr.success('Projet mis à jour avec succes', null, {progressBar: true});
 		}, (err) => {
 			console.log(err);
