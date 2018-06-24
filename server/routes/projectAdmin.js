@@ -126,7 +126,10 @@ function getCategoriesFromProject(categories) {
 
 
 function deleteImage(image) {
-	fs.unlink(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension));
+	fs.unlink(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension), (err) => {
+		if (err)
+			console.log(err);
+	});
 }
 
 function treatImages(oldProject, newProject) {
