@@ -37,7 +37,7 @@
 	</div>
 	<div class="col s12">
 		<button (click)="project.addImage()" class="btn">Ajouter une image</button>
-		<button (click)="addProject()" class="btn">Ajouter le projet</button>
+		<button (click)="addProject()" class="btn" [disabled]="disabledAddButton">Ajouter le projet</button>
 	</div>
 </div>
 

@@ -19,13 +19,15 @@ const options = {
 export class AddProjectComponent implements OnInit {
 	public project: Project;
 	public categories: Array<Categorie>;
+	public disabledAddButton: boolean;
 
 	constructor(private projectService: ProjectService,
 	            private toast: ToastrService,
 	            private catService: CategorieService,
 	            private route: Router) {
-		this.project    = new Project();
-		this.categories = new Array<Categorie>();
+		this.project           = new Project();
+		this.categories        = new Array<Categorie>();
+		this.disabledAddButton = false;
 	}
 
 	ngOnInit() {
@@ -69,9 +71,11 @@ export class AddProjectComponent implements OnInit {
 	 * Ajoute le projet
 	 */
 	addProject(): void {
+		this.disabledAddButton = true;
 		if (this.project.checkError()) {
 			this.project.errors.forEach((error) => {
 				this.toast.error(error, null, options);
+				this.disabledAddButton = false;
 			});
 		} else {
 			this.projectService
@@ -84,6 +88,8 @@ export class AddProjectComponent implements OnInit {
 				    });
 			    }, () => {
 				    this.toast.error("Impossible d'ajouter le projet.", null, options);
+			    }, () => {
+				    this.disabledAddButton = false;
 			    });
 		}
 	}
