@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Categorie } from "app/admin/categories/categorie";
 import { CategorieService } from "common/services/categorie.service";
 import * as _ from 'lodash';
+import { ActivatedRoute, Router } from "@angular/router";
 
 const options = {
 	progressBar: true
@@ -19,7 +20,10 @@ export class AddProjectComponent implements OnInit {
 	public project: Project;
 	public categories: Array<Categorie>;
 
-	constructor(private projectService: ProjectService, private toast: ToastrService, private catService: CategorieService) {
+	constructor(private projectService: ProjectService,
+	            private toast: ToastrService,
+	            private catService: CategorieService,
+	            private route: Router) {
 		this.project    = new Project();
 		this.categories = new Array<Categorie>();
 	}
@@ -75,6 +79,9 @@ export class AddProjectComponent implements OnInit {
 			    .subscribe((res: any) => {
 				    this.project.id = res.project._id;
 				    this.toast.success('Projet ajouté avec success.', null, options);
+				    this.route.navigate(['/admin/list']).then().catch((err) => {
+					    console.log(err)
+				    });
 			    }, () => {
 				    this.toast.error("Impossible d'ajouter le projet.", null, options);
 			    });
