@@ -124,7 +124,7 @@ function getCategoriesFromProject(categories) {
 	return cats;
 }
 
-
+// fixme utiliser la methode unlinkSync
 function deleteImage(image) {
 	fs.unlink(path.join(__dirname, '..', constants.PATH_UPLOAD, image.name + constants.DOT + image.extension), (err) => {
 		if (err)
@@ -193,6 +193,7 @@ function treatMiniature(oldProject, newProject) {
 	return miniature;
 }
 
+// fixme passer par la methode appenFileSync
 function uploadImage(imageName, buffer) {
 	fs.appendFile(path.join(__dirname, '..', constants.PATH_UPLOAD, imageName), buffer, (err) => {
 		if (err) {
