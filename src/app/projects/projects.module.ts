@@ -7,6 +7,8 @@ import { ProjectsRoutingModule } from "app/projects/projects.routing";
 import { HttpClientModule } from "@angular/common/http";
 import { CategorieService } from "common/services/categorie.service";
 import { ProjectService } from "common/services/project.service";
+import { AuthGuard } from "app/admin/AuthGuard";
+import { LocalStorageService } from "common/services/localStorage.service";
 
 @NgModule({
 	          imports     : [
@@ -19,7 +21,7 @@ import { ProjectService } from "common/services/project.service";
 		          ProjectsComponent,
 		          ProjectComponent
 	          ],
-	          providers   : [CategorieService, ProjectService]
+	          providers   : [CategorieService, ProjectService, AuthGuard, LocalStorageService]
           })
 export class ProjectsModule {
 }
