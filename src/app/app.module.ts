@@ -8,6 +8,7 @@ import { MaterializeModule } from "angular2-materialize";
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
+import { NavigationComponent } from '../common/components/navigation/navigation.component';
 
 @NgModule({
 	          declarations: [

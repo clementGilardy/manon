@@ -5,7 +5,6 @@ import { MentionsLegalRouting } from "app/mentions-legal/mentions-legal.routing"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonsModule } from "common/commons.module";
 import { HttpClientModule } from "@angular/common/http";
-import { NavMentionComponent } from './nav-mention/nav-mention.component';
 
 @NgModule({
 	          imports     : [
@@ -16,7 +15,7 @@ import { NavMentionComponent } from './nav-mention/nav-mention.component';
 		          HttpClientModule,
 		          MentionsLegalRouting
 	          ],
-	          declarations: [MentionsComponent, NavMentionComponent]
+	          declarations: [MentionsComponent]
           })
 export class MentionsLegalModule {
 }

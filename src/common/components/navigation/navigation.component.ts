@@ -4,11 +4,11 @@ import { DOCUMENT } from "@angular/common";
 declare var $: any;
 
 @Component({
-	           selector   : 'app-navproject',
-	           templateUrl: 'navproject.component.html',
-	           styleUrls  : ['navproject.component.scss']
+	           selector   : 'app-navigation',
+	           templateUrl: './navigation.component.html',
+	           styleUrls  : ['./navigation.component.scss']
            })
-export class NavprojectComponent implements OnInit {
+export class NavigationComponent implements OnInit {
 
 	@ViewChild('nav') navigation: ElementRef;
 	private lastScrolledTop: number;
@@ -37,5 +37,6 @@ export class NavprojectComponent implements OnInit {
 
 		this.lastScrolledTop = offset;
 	}
+
 
 }
