@@ -23,4 +23,8 @@ export class AdministrationComponent {
 		const expiration = localStorage.getItem("expire_at");
 		return new Date(expiration);
 	}
+
+	treatementLog(event: boolean) {
+		this.displayForm = event;
+	}
 }

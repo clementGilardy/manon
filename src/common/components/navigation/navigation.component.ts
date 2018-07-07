@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostListener, Inject, OnInit, ViewChild } from '@angular/core';
 import { DOCUMENT } from "@angular/common";
+import { AuthGuard } from "app/admin/AuthGuard";
 
 declare var $: any;
 
@@ -13,14 +14,19 @@ export class NavigationComponent implements OnInit {
 	@ViewChild('nav') navigation: ElementRef;
 	private lastScrolledTop: number;
 	private delta: number;
+	public displayAdmin: boolean;
 
-	constructor(@Inject(DOCUMENT) private document: Document) {
+	constructor(@Inject(DOCUMENT) private document: Document, private authGuard: AuthGuard) {
 		this.lastScrolledTop = 0;
 		this.delta           = 5;
+		this.displayAdmin    = false;
 	}
 
 	ngOnInit() {
 		$(".right.button-collapse").sideNav();
+		if (this.authGuard.canActivate()) {
+			this.displayAdmin = true;
+		}
 	}
 
 	/**

@@ -13,6 +13,8 @@ import { CommonModule } from "@angular/common";
 import { AccueilRoutingModule } from "app/accueil/accueil.routing";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from "app/admin/AuthGuard";
+import { LocalStorageService } from "common/services/localStorage.service";
 
 @NgModule({
 	          imports     : [
@@ -33,7 +35,7 @@ import { HttpClientModule } from "@angular/common/http";
 		          ContactMobileComponent,
 		          NavaccueilComponent
 	          ],
-	          providers   : [MailService]
+	          providers   : [MailService, AuthGuard, LocalStorageService]
           })
 export class AccueilModule {
 }

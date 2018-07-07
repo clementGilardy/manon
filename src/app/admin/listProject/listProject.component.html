@@ -1,28 +1,31 @@
-<table *ngIf="projects.length > 0">
-	<thead>
-	<tr>
-		<th>Miniature</th>
-		<th>Titre</th>
-		<th>Categorie</th>
-		<th>Date de création</th>
-		<th>Action</th>
-	</tr>
-	</thead>
-	<tbody [dragula]="'draggable'" [dragulaModel]="projects">
-	<tr *ngFor="let projet of projects">
-		<td><img width="150px"
-		         src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
-		         alt="miniature"></td>
-		<td>{{projet.titre}}</td>
-		<td><span *ngFor="let cat of projet.categories">{{cat.name}} </span></td>
-		<td>{{projet.displayDate}}</td>
-		<td>
-			<button (click)="deleteProjet(projet)" class="btn">Supprimer</button>
-			<button routerLink="/admin/update/{{projet.id}}" class="btn">Modifier</button>
-		</td>
-	</tr>
-	</tbody>
-</table>
-<span *ngIf="projects.length === 0">Aucun projet</span>
-<button class="btn" routerLink="/admin/add">Ajouter un projet</button>
-<button class="btn" routerLink="" fragment="home">Retour au site</button>
+<app-navigation></app-navigation>
+<div class="container">
+	<table *ngIf="projects.length > 0">
+		<thead>
+		<tr>
+			<th>Miniature</th>
+			<th>Titre</th>
+			<th>Categorie</th>
+			<th>Date de création</th>
+			<th>Action</th>
+		</tr>
+		</thead>
+		<tbody [dragula]="'draggable'" [dragulaModel]="projects">
+		<tr *ngFor="let projet of projects">
+			<td><img width="150px"
+			         src="/uploads/{{projet.miniature.name}}.{{projet.miniature.extension}}"
+			         alt="miniature"></td>
+			<td>{{projet.titre}}</td>
+			<td><span *ngFor="let cat of projet.categories">{{cat.name}} </span></td>
+			<td>{{projet.displayDate}}</td>
+			<td>
+				<button (click)="deleteProjet(projet)" class="btn">Supprimer</button>
+				<button routerLink="/admin/update/{{projet.id}}" class="btn">Modifier</button>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<span *ngIf="projects.length === 0">Aucun projet</span>
+	<button class="btn" routerLink="/admin/add">Ajouter un projet</button>
+	<button class="btn" routerLink="" fragment="home">Retour au site</button>
+</div>
