@@ -5,6 +5,8 @@ import { MentionsLegalRouting } from "app/mentions-legal/mentions-legal.routing"
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonsModule } from "common/commons.module";
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from "app/admin/AuthGuard";
+import { LocalStorageService } from "common/services/localStorage.service";
 
 @NgModule({
 	          imports     : [
@@ -15,7 +17,8 @@ import { HttpClientModule } from "@angular/common/http";
 		          HttpClientModule,
 		          MentionsLegalRouting
 	          ],
-	          declarations: [MentionsComponent]
+	          declarations: [MentionsComponent],
+	          providers   : [AuthGuard, LocalStorageService]
           })
 export class MentionsLegalModule {
 }

@@ -1,13 +1,72 @@
-#title-container {
-	position: absolute;
-	top: 13%;
+@media (min-width: 1281px) {
+	#title-container {
+		position: absolute;
+		top: 13%;
+	}
+
+	#title-container h3, #title-container p {
+		margin: 0;
+	}
+
+	#title-container img {
+		width: 95%;
+		margin-bottom: 15px;
+	}
 }
 
-#title-container h3, #title-container p {
-	margin: 0;
+@media (min-width: 981px) and (max-width: 1280px){
+	#title-container {
+		position: absolute;
+		top: 13%;
+	}
+
+	.title-img {
+		text-align: center;
+	}
+
+	#title-container h3, #title-container p {
+		margin: 0;
+	}
+
+	#title-container img {
+		width: 90%;
+		margin-bottom: 15px;
+	}
+
+	#title-container h3 {
+		font-size: 2.5rem;
+	}
+
+	#title-container p {
+		font-size: 30px;
+	}
 }
 
-#title-container img {
-	width: 95%;
-	margin-bottom: 15px;
+@media (max-width: 980px) {
+	#title-container {
+		position: absolute;
+		top: 21%;
+	}
+
+	#title-container h3, #title-container p {
+		margin: 0;
+	}
+
+	#title-container h3 {
+		font-size: 2.3rem;
+	}
+
+	#title-container p {
+		padding-top: 3%;
+		font-size: 30px;
+	}
+
+	#title-container img {
+		width: 95%;
+		margin-bottom: 15px;
+	}
+
+	#title-container p {
+		line-height: 1;
+	}
 }

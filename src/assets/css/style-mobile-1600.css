@@ -1,7 +1,7 @@
 @media (max-width: 1600px) and (min-width:980px) {
     nav#nav-princ {
         position: fixed;
-        box-shadow: none;
+        box-shadow: white;
         -webkit-box-shadow: none;
         padding-top: 10px;
         padding-left: 40px;
@@ -116,7 +116,7 @@
     }
 
     .three-comptence img {
-        width:200px;
+        width:73%;
     }
 
 

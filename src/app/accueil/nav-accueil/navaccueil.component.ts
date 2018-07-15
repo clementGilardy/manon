@@ -34,11 +34,6 @@ export class NavaccueilComponent implements OnInit {
 	@HostListener("window:scroll", [])
 	onWindowScroll() {
 		const offset = this.document.documentElement.scrollTop;
-		if (offset >= 0 && offset <= 100) {
-			$('#' + this.navigation.nativeElement.id).css('background', 'none');
-		} else {
-			$('#' + this.navigation.nativeElement.id).css('background', 'white');
-		}
 
 		if (offset > this.lastScrolledTop && offset > 80) {
 			$('#' + this.navigation.nativeElement.id).fadeOut(500);
