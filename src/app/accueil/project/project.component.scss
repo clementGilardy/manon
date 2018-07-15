@@ -1,4 +1,11 @@
+.projectContainer {
+	display: inline-block;
+	text-align: center;
+	width: 80%;
+}
+
 .project-accueil {
+	display: inline-block;
 	height: 100%;
 	position: relative;
 }
@@ -49,7 +56,7 @@ h3 {
 
 @media (min-width: 1601px) {
 	.projectContainer {
-		display: flex;
+		display: inline-block;
 		align-items: center;
 	}
 }

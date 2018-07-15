@@ -36,10 +36,8 @@ export class NavaccueilComponent implements OnInit {
 		const offset = this.document.documentElement.scrollTop;
 		if (offset >= 0 && offset <= 100) {
 			$('#' + this.navigation.nativeElement.id).css('background', 'none');
-			$('#' + this.navigation.nativeElement.id + ' a').css('color', 'white');
 		} else {
 			$('#' + this.navigation.nativeElement.id).css('background', 'white');
-			$('#' + this.navigation.nativeElement.id + ' a').css('color', 'black');
 		}
 
 		if (offset > this.lastScrolledTop && offset > 80) {

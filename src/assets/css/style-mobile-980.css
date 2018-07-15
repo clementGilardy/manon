@@ -86,11 +86,9 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: white;
     }
 
     .title-texte {
-        color: white;
         text-align: center;
         font-size: 35px;
     }

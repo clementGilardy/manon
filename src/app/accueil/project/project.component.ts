@@ -19,7 +19,7 @@ export class ProjectComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.projectService.getByLimit(3).then((result: Array<Project>) => {
+		this.projectService.getByLimit(6).then((result: Array<Project>) => {
 			this.projects = result;
 			this.projects.sort((a: any, b: any) => {
 				if (a.order > b.order) return -1;
