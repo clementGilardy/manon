@@ -17,9 +17,10 @@ export class NavigationComponent implements OnInit {
 	public displayAdmin: boolean;
 
 	constructor(@Inject(DOCUMENT) private document: Document, private authGuard: AuthGuard) {
-		this.lastScrolledTop = 0;
-		this.delta           = 5;
-		this.displayAdmin    = false;
+		this.lastScrolledTop                    = 0;
+		this.delta                              = 5;
+		this.displayAdmin                       = false;
+		this.document.documentElement.scrollTop = 0;
 	}
 
 	ngOnInit() {
